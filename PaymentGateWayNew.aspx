@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="PaymentGateWayNew.aspx.cs" Inherits="PaymentGateWayNew" %>

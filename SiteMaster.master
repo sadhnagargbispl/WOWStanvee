@@ -1,0 +1,340 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="SiteMaster.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Wow Stanvee</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        /* Hide scrollbar */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+            .no-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="bg-gray-100">
+    <form id="form1" runat="server">
+        <div>
+            <nav class="bg-white shadow-md sticky top-0 z-50">
+                <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+                    <div class="flex justify-between h-16 items-center">
+
+                        <!-- Logo -->
+                        <div class="flex-shrink-0 flex items-center">
+                            <a href="index.aspx">
+                                <img src="./assets/stanvee-logo.png" alt="Logo" class="h-8 sm:h-10 w-auto">
+                            </a>
+                        </div>
+
+                        <div class="flex items-center">
+
+                            <!-- Desktop Menu -->
+                            <div class="hidden lg:flex space-x-6 items-center font-bold text-base mr-4">
+                                <a href="HolidayRedirect.aspx" class="text-gray-700 hover:text-blue-600">Holiday</a>
+                                <a href="BrandStoreRedirect.aspx" class="text-gray-700 hover:text-blue-600">Brand Store</a>
+                                <a href="https://stanveeproducts.vercel.app/" class="text-gray-700 hover:text-blue-600">Shop</a>
+                                <a href="MovieBookingRedirect.aspx" class="text-gray-700 hover:text-blue-600">Movies</a>
+                                <a href="insurance.aspx" class="text-gray-700 hover:text-blue-600">Insurance</a>
+                                <a href="ScratchCard.aspx" class="text-gray-700 hover:text-blue-600">Scratch Card</a>
+                                <a href="freeProduct.aspx" class="text-gray-700 hover:text-blue-600">Free Product</a>
+                            </div>
+
+                            <!-- Buttons -->
+                            <div class="flex items-center space-x-1 sm:space-x-2">
+                                <a href="MM_Voucher.aspx"
+                                    class="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full font-bold shadow-md text-xs sm:text-sm">Buy Now
+                                </a>
+
+
+                                <% if (Session["Status"] != null && Session["Status"].ToString() == "OK")
+                                    { %>
+                                <div class="relative group ml-4">
+
+                                    <!-- Main Button -->
+                                    <a href="#"
+                                        class="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full font-bold shadow-md text-xs sm:text-sm">
+                                      
+                                        <asp:Label ID="LblIDno" runat="server" Text=""></asp:Label>
+                                    </a>
+
+                                    <!-- Dropdown Menu -->
+                                    <div class="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-xl 
+  opacity-0 invisible group-hover:opacity-100 
+  group-hover:visible transition-all duration-300 z-50">
+
+                                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-t-xl"><i class="fa fa-user" aria-hidden="true"></i>
+                                            <asp:Label ID="LblName" runat="server" Text=""></asp:Label></a>
+                                        <hr>
+
+                                        <a href="logout.aspx" class="block px-4 py-2 text-red-600 hover:bg-red-50 rounded-b-xl">Logout </a>
+
+                                    </div>
+
+                                </div>
+
+                                <% }
+                                    else
+                                    {  %>
+                                <div class="relative group ml-4">
+
+                                    <!-- Main Button -->
+                                    <a href="Login.aspx"
+                                        class="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full font-bold shadow-md text-xs sm:text-sm">
+                                     Login
+                                    </a>
+                                </div>
+
+                                <% } %>
+                                <%--  <a href="Login.aspx"
+                                    class="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full font-bold shadow-md text-xs sm:text-sm">Login
+                                </a>--%>
+                            </div>
+
+                            <!-- Mobile Toggle Button -->
+                            <button type="button" id="toggle-button" class="ml-3 lg:hidden focus:outline-none relative w-7 h-7">
+
+                                <!-- Hamburger -->
+                                <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg"
+                                    class="h-7 w-7 transition duration-300" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 6h16M4 12h16M4 18h16" />
+                                </svg>
+
+                                <!-- Close (X) -->
+                                <svg id="close-icon" xmlns="http://www.w3.org/2000/svg"
+                                    class="h-7 w-7 absolute top-0 left-0 hidden transition duration-300" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu -->
+                <div id="slide-menu"
+                    class="hidden px-4 pt-4 pb-4 space-y-1 bg-white font-semibold text-base border-t border-gray-100 lg:hidden shadow-lg">
+
+                    <a href="HolidayRedirect.aspx"
+                        class="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-lg">Holiday</a>
+
+                    <a href="BrandStoreRedirect.aspx"
+                        class="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-lg">Brand Store</a>
+
+                    <a href="https://stanveeproducts.vercel.app/"
+                        class="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-lg">Shop</a>
+
+                    <a href="MovieBookingRedirect.aspx"
+                        class="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-lg">Movies</a>
+
+                    <a href="insurance.aspx" class="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-lg">Insurance</a>
+
+                    <a href="ScratchCard.aspx" class="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-lg">Scratch
+            Card</a>
+
+                    <a href="freeProduct.aspx" class="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-lg">Free
+            Product</a>
+
+                    <% if (Session["Status"] != null && Session["Status"].ToString() == "OK")
+                        { %>
+                    <div class="relative group ml-4">
+
+                        <!-- Main Button -->
+                        <a href="#"
+                            class="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 
+text-white px-4 py-2 rounded-full font-semibold 
+hover:from-pink-600 hover:via-purple-600 hover:to-indigo-600 
+transition shadow-lg text-sm inline-block">
+                            
+                            <asp:Label ID="LblIDnos" runat="server" Text=""></asp:Label>
+                        </a>
+
+                        <!-- Dropdown Menu -->
+                        <div class="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-xl 
+  opacity-0 invisible group-hover:opacity-100 
+  group-hover:visible transition-all duration-300 z-50">
+
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-t-xl">
+                                <asp:Label ID="lblnmaes" runat="server" Text=""></asp:Label></a>
+                            <hr>
+
+                            <a href="logout.aspx" class="block px-4 py-2 text-red-600 hover:bg-red-50 rounded-b-xl">Logout </a>
+
+                        </div>
+
+                    </div>
+
+                    <% }
+                        else
+                        {  %>
+                    <div class="relative group ml-4">
+
+                        <!-- Main Button -->
+                        <a href="Login.aspx"
+                            class="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 
+              text-white px-4 py-2 rounded-full font-semibold 
+              hover:from-pink-600 hover:via-purple-600 hover:to-indigo-600 
+              transition shadow-lg text-sm inline-block">
+                           Login
+                        </a>
+                    </div>
+
+                    <% } %>
+                </div>
+            </nav>
+            <script>
+                const toggleButton = document.getElementById("toggle-button");
+                const slideMenu = document.getElementById("slide-menu");
+                const hamburgerIcon = document.getElementById("hamburger-icon");
+                const closeIcon = document.getElementById("close-icon");
+
+                toggleButton.addEventListener("click", (e) => {
+                    e.stopPropagation();
+
+                    slideMenu.classList.toggle("hidden");
+                    hamburgerIcon.classList.toggle("hidden");
+                    closeIcon.classList.toggle("hidden");
+                });
+
+                document.addEventListener("click", (event) => {
+                    if (!toggleButton.contains(event.target) && !slideMenu.contains(event.target)) {
+                        slideMenu.classList.add("hidden");
+                        hamburgerIcon.classList.remove("hidden");
+                        closeIcon.classList.add("hidden");
+                    }
+                });
+            </script>
+            <!-- Navbar -->
+
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+        </div>
+        <!-- Footer -->
+
+        <footer class="bg-gray-900 text-gray-300 ">
+            <div class="container mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+
+                <!-- Company Info with Logo -->
+                <div class="flex flex-col items-start">
+                    <!-- Example logo (replace with your own) -->
+                    <a href="index.aspx">
+                        <img src="https://stanvee.com/images/logo.png" alt="Stanvee Logo" class="mb-4 w-36">
+                    </a>
+                    <h3 class="text-xl font-bold mb-4 text-white">Stanvee Services India Limited</h3>
+                    <p class="text-gray-400">
+                        Delivering amazing offers, products, and experiences to our valued customers. Stay connected for the
+                latest updates.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="HolidayRedirect.aspx"
+                                class="hover:text-white font-medium transition duration-300">Hotels
+                            </a>
+                        </li>
+                        <li>
+                            <a href="BrandStoreRedirect.aspx"
+                                class="hover:text-white font-medium transition duration-300">Brand Store
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://stanveeproducts.vercel.app/"
+                                class="hover:text-white font-medium transition duration-300">Shop
+                            </a>
+                        </li>
+                        <li>
+                            <a href="MovieBookingRedirect.aspx"
+                                class="hover:text-white font-medium transition duration-300">Movies
+                            </a>
+                        </li>
+                        <li>
+                            <a href="insurance.aspx" class="hover:text-white font-medium transition duration-300">Insurance
+                            </a>
+                        </li>
+                        <li>
+                            <a href="ScratchCard.aspx" class="hover:text-white font-medium transition duration-300">Scratch Card
+                            </a>
+                        </li>
+                        <li>
+                            <a href="freeProduct.aspx" class="hover:text-white font-medium transition duration-300">Free Product
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Contact Us</h3>
+                    <p class="font-medium">
+                        Email: <a href="mailto:info@stanvee.com"
+                            class="hover:text-white">info@stanvee.com</a>
+                    </p>
+                    <p class="font-medium">
+                        Phone: <a href="tel:+919270511515" class="hover:text-white">+91 9270511515</a>
+                    </p>
+                    <p class="font-medium">Address: ANDHERI, MUMBAI, Maharashtra - 400072</p>
+                </div>
+
+                <!-- Social Media -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Follow Us</h3>
+                    <div class="flex space-x-4 text-2xl">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="border-t border-gray-700 mt-8">
+                <p class="text-center py-4 text-gray-400 font-medium">&copy; 2026 Stanvee India. All rights reserved.</p>
+            </div>
+        </footer>
+        <!-- ================== Footer ================== -->
+
+        <!-- Footer -->
+    </form>
+</body>
+</html>

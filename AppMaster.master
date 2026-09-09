@@ -1,0 +1,259 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AppMaster.master.cs" Inherits="AppMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Stanvee Services India Limited</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="assets/css/AppWeb.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="app-root">
+            <div class="app-shell" id="appShell">
+
+                <!-- OVERLAY -->
+                <div class="overlay" id="overlay" onclick="closeDrawer()"></div>
+
+                <!-- DRAWER -->
+                <div class="drawer" id="drawer">
+                    <button type="button" class="close-btn" onclick="closeDrawer()"><i class="fa fa-times"></i></button>
+
+                    <div class="drawer-header">
+                        <img src="images/logo.png" alt="Stanvee" class="drawer-logo" onerror="this.style.display='none'" />
+                        <div class="drawer-brand">
+                            <h2>Stanvee Services</h2>
+                            <p>Stanvee Services India Limited</p>
+                        </div>
+                    </div>
+
+                    <%--  <div class="drawer-user">
+                        <div class="d-avatar">R</div>
+                        <div>
+                            <div class="d-name">Rohit Kumar Sahu</div>
+                            <div class="d-id">ID: EPAY123456</div>
+                        </div>
+                    </div>--%>
+                    <div class="drawer-user">
+                        <div class="d-avatar" id="ddUserNamenameee" runat="server"></div>
+                        <div>
+                            <div class="d-name" id="ddUserName" runat="server"></div>
+                            <div class="d-id">
+                                ID:
+               <asp:Label ID="LblIDD" runat="server" Text=""></asp:Label>
+                            </div>
+                        </div>
+                        <div class="d-badge"><i class="fa fa-crown"></i>PRO</div>
+                    </div>
+                    <nav class="drawer-nav">
+                        <ul>
+                            <li>
+                                <a href="WebApp.aspx" class="d-active" onclick="closeDrawer()">
+                                    <span class="d-icon"><i class="fa fa-home"></i></span>Home
+                                </a>
+                            </li>
+
+                            <li class="d-hr"></li>
+
+                            <!-- ═══ OUR SERVICES (WebApp jaise hi) ═══ -->
+                            <li>
+                                <a href="wow-package.aspx" onclick="closeDrawer()">
+                                    <span class="d-icon"><i class="fa fa-box"></i></span>WOW Package
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://stanvee.com/full_tank_detail.asp" target="_blank" onclick="closeDrawer()">
+                                    <span class="d-icon"><i class="fa fa-gas-pump"></i></span>Full Tank
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="showToast('Utility coming soon!'); closeDrawer(); return false;">
+                                    <span class="d-icon"><i class="fa fa-screwdriver-wrench"></i></span>Utility
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="showToast('Gift Voucher coming soon!'); closeDrawer(); return false;">
+                                    <span class="d-icon"><i class="fa fa-gift"></i></span>Gift Voucher
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://shop.stanvee.com/" target="_blank" onclick="closeDrawer()">
+                                    <span class="d-icon"><i class="fa fa-bag-shopping"></i></span>Stanvee Shop
+                                </a>
+                            </li>
+                            <li>
+                                <a href="BrandStoreRedirect.aspx" onclick="closeDrawer()">
+                                    <span class="d-icon"><i class="fa fa-shop"></i></span>Brand Store
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://stanvee.com/royal_package.asp" target="_blank" onclick="closeDrawer()">
+                                    <span class="d-icon"><i class="fa fa-umbrella-beach"></i></span>Royal Holiday
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://holiday.stanvee.com/" target="_blank" onclick="closeDrawer()">
+                                    <span class="d-icon"><i class="fa fa-plane-departure"></i></span>WOW Holiday
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="showToast('My Business coming soon!'); closeDrawer(); return false;">
+                                    <span class="d-icon"><i class="fa fa-briefcase"></i></span>My Business
+                                </a>
+                            </li>
+                            <li>
+                                <a href="AppMM_Voucher.aspx" onclick="closeDrawer()">
+                                    <span class="d-icon"><i class="fa fa-box-open"></i></span>Buy Packages
+                                </a>
+                            </li>
+
+                            <li class="d-hr"></li>
+
+                            <!-- ═══ WOW PACKAGE SERVICES ═══ -->
+                            <li>
+                                <a href="AppScratchCard.aspx" onclick="closeDrawer()">
+                                    <span class="d-icon"><i class="fa fa-ticket"></i></span>Scratch Card
+                                </a>
+                            </li>
+                            <li>
+                                <a href="AppfreeProduct.aspx" onclick="closeDrawer()">
+                                    <span class="d-icon"><i class="fa fa-gift"></i></span>Free Product
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Appinsurance.aspx" onclick="closeDrawer()">
+                                    <span class="d-icon"><i class="fa fa-shield-halved"></i></span>Insurance
+                                </a>
+                            </li>
+                            <li>
+                                <a href="MovieBookingRedirect.aspx" onclick="closeDrawer()">
+                                    <span class="d-icon"><i class="fa fa-clapperboard"></i></span>Movie Booking
+                                </a>
+                            </li>
+
+                            <li class="d-hr"></li>
+
+                            <!-- ═══ ACCOUNT ═══ -->
+                            <li>
+                                <a href="index.aspx" onclick="closeDrawer()">
+                                    <span class="d-icon"><i class="fa fa-globe"></i></span>View Website
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Login.aspx" onclick="closeDrawer()">
+                                    <span class="d-icon"><i class="fa fa-power-off"></i></span>Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <div class="drawer-footer-note">© 2025 Stanvee Services India Limited. All rights reserved.</div>
+                </div>
+
+                <!-- HEADER
+                     Default: hamburger + logo + login.
+                     Inner pages HeaderContent override karke back-button
+                     header dikha sakte hain. -->
+                <header class="app-header">
+                    <asp:ContentPlaceHolder ID="HeaderContent" runat="server">
+                        <div class="h-left">
+                            <button type="button" class="hamburger" onclick="openDrawer()" aria-label="Menu">
+                                <span></span><span></span><span></span>
+                            </button>
+                            <img src="images/logo.png" alt="Stanvee" class="h-logo" onerror="this.style.display='none'" />
+                        </div>
+                        <div class="h-right">
+                            <div class="notif-wrap">
+                                <a href="login.html" class="h-icon-btn" title="Login" style="text-decoration: none;">
+                                    <i class="fa fa-sign-in-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </asp:ContentPlaceHolder>
+                </header>
+
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+
+                <!-- BOTTOM NAV
+                     Inner pages BottomNav ko khaali override karke
+                     ise hide kar sakte hain. -->
+                <asp:ContentPlaceHolder ID="BottomNav" runat="server">
+                    <%--  <nav class="bottom-nav">
+
+                    <button type="button" class="nav-tab active" id="tab-home" onclick="setTab('home')">
+                        <span class="n-bar"></span>
+                        <i class="fa fa-home n-icon"></i>
+                        <span>Home</span>
+                    </button>
+
+                    <button type="button" class="nav-tab" id="tab-acct" onclick="setTab('acct'); showToast('My Account')">
+                        <span class="n-bar"></span>
+                        <i class="fa fa-user-circle n-icon"></i>
+                        <span>My Account</span>
+                    </button>
+
+                    <a class="nav-tab" id="tab-login" href="login.html" onclick="setTab('login')">
+                        <span class="n-bar"></span>
+                        <i class="fa fa-sign-in-alt n-icon"></i>
+                        <span>Login</span>
+                    </a>
+
+                </nav>--%>
+                </asp:ContentPlaceHolder>
+
+            </div>
+
+            <!-- TOAST -->
+            <div class="toast" id="toast"></div>
+
+            <script>
+                function openDrawer() {
+                    document.getElementById('drawer').classList.add('open');
+                    document.getElementById('overlay').classList.add('show');
+                }
+
+                function closeDrawer() {
+                    document.getElementById('drawer').classList.remove('open');
+                    document.getElementById('overlay').classList.remove('show');
+                }
+
+                function setTab(id) {
+                    document.querySelectorAll('.nav-tab').forEach(function (t) { t.classList.remove('active'); });
+                    var el = document.getElementById('tab-' + id);
+                    if (el) el.classList.add('active');
+                }
+
+                var toastTimer;
+                function showToast(msg) {
+                    var t = document.getElementById('toast');
+                    t.textContent = msg;
+                    t.classList.add('show');
+                    clearTimeout(toastTimer);
+                    toastTimer = setTimeout(function () { t.classList.remove('show'); }, 2500);
+                }
+
+                // Mobile browser address-bar height fix (fallback for 100dvh)
+                function setShellHeight() {
+                    var shell = document.getElementById('appShell');
+                    if (shell) shell.style.height = window.innerHeight + 'px';
+                }
+                if (!CSS.supports || !CSS.supports('height', '100dvh')) {
+                    setShellHeight();
+                    window.addEventListener('resize', setShellHeight);
+                    window.addEventListener('orientationchange', setShellHeight);
+                }
+            </script>
+
+            <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"360cbf45c5594d99ae7beea3136b35ff","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+        </div>
+
+    </form>
+</body>
+</html>

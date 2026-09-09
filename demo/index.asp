@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WOW Landing Page</title>
+  <link rel="stylesheet" href="style.css?v=8">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Inter:wght@400;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  </head>
+
+
+<body>
+
+  <!-- #include file="inc_header.asp" -->
+
+
+
+  <!-- Side Drawer for Mobile -->
+  <div class="side-drawer" id="sideDrawer">
+    <div class="drawer-header">
+      <div class="logo">
+        <img src="wow_page_images/logo.png" alt="Logo">
+      </div>
+      <div class="close-drawer" id="closeDrawer">
+        <i class="fas fa-times"></i>
+      </div>
+    </div>
+    <div class="drawer-nav">
+      <div class="drawer-dropdown">
+        <div class="drawer-dropbtn">Packages <i class="fas fa-caret-down"></i></div>
+        <div class="drawer-dropdown-content">
+          <a href="https://wow.stanvee.com/">WOW Package</a>
+          <a href="https://stanvee.com/full_tank_detail.asp">Full Tank Card</a>
+          <a href="https://stanvee.com/royal_package.asp">Royal Package</a>
+        </div>
+      </div>
+      <a href="https://holiday.stanvee.com/">Holiday</a>
+      <div class="drawer-dropdown">
+        <div class="drawer-dropbtn">Shop <i class="fas fa-caret-down"></i></div>
+        <div class="drawer-dropdown-content">
+          <a href="https://shop.stanvee.com/">Shop</a>
+          <a href="https://brandstore.stanveeservices.com/">Brand Store</a>
+        </div>
+      </div>
+      <a href="https://movie.stanvee.com/">Movies</a>
+      <a href="https://wow.stanvee.com/insurance.aspx">Insurance</a>
+      <a href="https://wow.stanvee.com/ScratchCard.aspx">Scratch Card</a>
+      <a href="https://wow.stanvee.com/freeProduct.aspx">Free Product</a>
+    </div>
+    <button class="cta-btn drawer-cta">
+      <a href="https://wow.stanvee.com/MM_Voucher.aspx">Get WOW Card Now!</a>
+    </button>
+    <div class="drawer-footer" style="display: none;">
+      <div class="drawer-socials">
+        <i class="fas fa-user"></i>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <section class="hero-section">
+    <div class="hero-slider">
+      <div class="hero-track">
+
+        <!-- Slide 1: Ek Package 5 WOW Benefits. -->
+        <div class="hero-slide active" style="background-image: url('wow_page_images/hero_slide1.png');">
+          <div class="hero-overlay"></div>
+          <div class="hero-container">
+            <div class="hero-main-container">
+              <div class="hero-content">
+                <h1 class="hero-heading">
+                  <span>Ek Package.</span><br>
+                  <span>5 <span class="white-italic">WOW </span> Benefits.</span><br>
+                  <span>Unlimited Value.</span>
+                </h1>
+                <p class="hero-desc">
+                  Hotel stays, movie tickets, Rs. 2 lakh insurance, Rs. 5,000 shopping coupon, scratch card prizes up to
+                  Rs. 15,000, and a free product - all in one package that costs less than a dinner for two.
+                </p>
+                <div class="hero-cta-wrapper">
+                  <button class="cta-btn">
+                    <a href="https://wow.stanvee.com/MM_Voucher.aspx" target="_blank">Get Your WOW Package Now! <span><i
+                          class="fas fa-arrow-right"></i></span></a>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: Watch More. Win More -->
+        <div class="hero-slide" style="background-image: url('wow_page_images/hero_slide2.png');">
+          <div class="hero-overlay"></div>
+          <div class="hero-container">
+            <div class="hero-main-container">
+              <div class="hero-content">
+                <h1 class="hero-heading">
+                  <span>Watch More. Win More. </span><br>
+                  <span>Spend Nothing.</span>
+                </h1>
+                <p class="hero-desc">
+                  Step into the theatre and enjoy your favorite films with two free movie tickets included in your WOW
+                  package.
+                  <br /><br />
+                  Or take your shot at winning premium products. Every scratch card brings you closer to rewards worth
+                  up to ₹15,000—because luck should pay off
+                </p>
+                <div class="hero-cta-wrapper">
+                  <button class="cta-btn">
+                    <a href="https://wow.stanvee.com/MM_Voucher.aspx" target="_blank">Get Your WOW Package Now! <span><i
+                          class="fas fa-arrow-right"></i></span></a>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3: Shop More. Spend Less -->
+        <div class="hero-slide" style="background-image: url('wow_page_images/hero_slide3.png');">
+          <div class="hero-overlay"></div>
+          <div class="hero-container">
+            <div class="hero-main-container">
+              <div class="hero-content">
+                <h1 class="hero-heading">
+                  <span>Experience Unlimited</span><br>
+                  <span>Value with <span class="white-italic">WOW</span> Benefits.</span>
+                </h1>
+                <p class="hero-desc">
+                  Unlock premium value and exclusive rewards with the WOW Package membership today. Shop, watch, and
+                  enjoy more while spending significantly less.
+                </p>
+                <div class="hero-cta-wrapper">
+                  <button class="cta-btn">
+                    <a href="https://wow.stanvee.com/MM_Voucher.aspx" target="_blank">Get Your WOW Package Now! <span><i
+                          class="fas fa-arrow-right"></i></span></a>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Slider Navigation -->
+      <div class="hero-pagination">
+        <span class="dot active" onclick="currentSlide(0)"></span>
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section2 wow-section">
+    <div class="wow-header">
+      <p class="wow-subheading">WHAT’S INSIDE YOUR WOW PACKAGE?</p>
+      <h2 class="wow-heading">
+        Five Reasons it's worth <span class="italic-serif">every rupee</span>
+      </h2>
+    </div>
+
+    <div class="wow-container">
+      <div class="wow-accordion">
+        <div class="wow-item" data-target="stay">Holiday Stay</div>
+        <div class="wow-item active" data-target="movies">Movie Tickets</div>
+        <div class="or"><i>OR</i></div>
+        <div class="wow-item" data-target="insurance">Accidental Insurance</div>
+        <div class="wow-item" data-target="shopping">Shopping Coupon</div>
+        <div class="wow-item" data-target="scratch">Scratch Card</div>
+        <div class="wow-item" data-target="product">Free Product</div>
+      </div>
+
+      <div class="wow-content">
+        <div class="content-panel" id="stay">
+          <div class="revamped-panel theme-yellow">
+            <div class="mobile-panel-info">
+              <div class="category-icon-wrapper"><svg width="56" height="56" viewBox="0 0 56 56" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M0 16C0 7.16344 7.16344 0 16 0H40C48.8366 0 56 7.16344 56 16V40C56 48.8366 48.8366 56 40 56H16C7.16344 56 0 48.8366 0 40V16Z"
+                    fill="#FFF3D5" />
+                  <path
+                    d="M27.9996 14.2227C20.1596 14.2227 13.7773 19.8049 13.7773 26.6671C13.7773 33.5293 20.1596 39.1115 27.9996 39.1115C29.4664 39.1098 30.926 38.9064 32.3374 38.5071L37.2529 41.636C37.4511 41.7629 37.6914 41.8062 37.9214 41.7562C38.1513 41.7062 38.3521 41.5671 38.4796 41.3693C38.5878 41.2312 38.6528 41.0642 38.6663 40.8893V34.9071C39.7785 33.8401 40.666 32.5614 41.2766 31.1463C41.8873 29.7312 42.2086 28.2082 42.2218 26.6671C42.2218 19.8049 35.8396 14.2227 27.9996 14.2227ZM38.524 28.0004H31.1196C31.0697 28.0009 31.0204 28.0113 30.9746 28.0312C30.9288 28.051 30.8874 28.0798 30.8529 28.116L26.1418 33.1293C26.109 33.1651 26.0692 33.1939 26.0249 33.2138C25.9806 33.2336 25.9326 33.2442 25.884 33.2448H23.724C23.6633 33.2444 23.6036 33.2287 23.5504 33.1993C23.4972 33.1699 23.4522 33.1277 23.4195 33.0764C23.3869 33.0252 23.3675 32.9666 23.3632 32.906C23.359 32.8453 23.37 32.7846 23.3952 32.7293L25.5907 28.0004H18.6307C18.5648 27.9989 18.5005 27.9801 18.4443 27.9457C18.3881 27.9114 18.342 27.8628 18.3107 27.8048L15.9107 23.3604H17.5462C17.612 23.3614 17.6768 23.3762 17.7365 23.4037C17.7962 23.4313 17.8495 23.471 17.8929 23.5204L19.2796 25.0226C19.3144 25.0659 19.3595 25.0999 19.4106 25.1216C19.4618 25.1433 19.5175 25.1521 19.5729 25.1471L25.0663 24.8093L23.2885 21.6538H25.8574C25.958 21.6521 26.0559 21.6868 26.1329 21.7515L29.4485 24.4448L35.3952 24.1337C35.6872 24.1137 35.9804 24.1529 36.2569 24.2492C36.5334 24.3454 36.7875 24.4966 37.004 24.6937L39.1996 26.676C39.2967 26.7987 39.3566 26.9468 39.372 27.1027C39.3875 27.2585 39.3579 27.4154 39.2867 27.5549C39.2156 27.6944 39.1059 27.8105 38.9707 27.8895C38.8355 27.9685 38.6805 28.007 38.524 28.0004Z"
+                    fill="#201700" />
+                </svg>
+              </div>
+              <div class="category-text">
+                <div class="category-title">Holiday Stay</div>
+                <div class="category-subtitle">2N/3D · 3 Star+ Hotels · India-Wide</div>
+              </div>
+            </div>
+
+            <div class="revamped-banner">
+              <div class="banner-content">
+                <h3>
+                  <span class="hide-mobile">From Manali to Mysore. Jaipur to Puri<br>Your escape is already paid
+                    for.</span>
+                  <span class="hide-desktop">Travel India - Your trip is on us</span>
+                </h3>
+                <div class="tags">
+                  <span class="tag">3 Star+ Hotels</span>
+                  <span class="tag">Anywhere in India</span>
+                  <span class="tag">60+ Holiday Destinations</span>
+                </div>
+              </div>
+            </div>
+            <div class="feature-grid">
+              <div class="feature-card">
+                <i class="fas fa-umbrella-beach"></i>
+                <div class="details">
+                  <div class="feature-value">2 Nights, 3 Days</div>
+                  <div class="feature-label">Full Stay Covered</div>
+                </div>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-utensils"></i>
+                <div class="details">
+                  <div class="feature-value">₹1,000</div>
+                  <div class="feature-label">Food Coupon</div>
+                </div>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-users"></i>
+                <div class="details">
+                  <div class="feature-value">Family</div>
+                  <div class="feature-label">2 Adults + 2 children</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="asset-grid">
+              <div class="asset-grid-inner"><button class="asset-grid-btn"
+                  onclick="document.getElementById('holiday-section').scrollIntoView({behavior: 'smooth'})">Click to
+                  Explore More <i class="fas fa-arrow-right"></i></button></div>
+              <div class="asset-card">
+                <img src="wow_page_images/beach_retreat.png">
+              </div>
+              <div class="asset-card">
+                <img src="wow_page_images/hill_side.png">
+              </div>
+              <div class="asset-card">
+                <img src="wow_page_images/cultural_cities.png">
+              </div>
+            </div>
+            <button class="explore-btn mobile-only-btn"
+              onclick="document.getElementById('holiday-section').scrollIntoView({behavior: 'smooth'})">Click to Explore
+              More <i class="fas fa-chevron-right"></i></button>
+          </div>
+        </div>
+
+        <div class="content-panel active" id="movies">
+          <div class="revamped-panel theme-movies">
+            <div class="mobile-panel-info">
+              <div class="category-icon-wrapper"><svg width="56" height="56" viewBox="0 0 56 56" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M0 16C0 7.16344 7.16344 0 16 0H40C48.8366 0 56 7.16344 56 16V40C56 48.8366 48.8366 56 40 56H16C7.16344 56 0 48.8366 0 40V16Z"
+                    fill="#E6FDFF" />
+                  <path
+                    d="M17.333 32.0003H19.9997C20.7069 32.0003 21.3852 32.2813 21.8853 32.7814C22.3854 33.2815 22.6663 33.9597 22.6663 34.667V37.3337H23.9997V34.667C23.9997 33.9597 24.2806 33.2815 24.7807 32.7814C25.2808 32.2813 25.9591 32.0003 26.6663 32.0003H29.333C30.0403 32.0003 30.7185 32.2813 31.2186 32.7814C31.7187 33.2815 31.9997 33.9597 31.9997 34.667V37.3337H33.333V34.667C33.333 33.9597 33.614 33.2815 34.1141 32.7814C34.6142 32.2813 35.2924 32.0003 35.9997 32.0003H38.6663C39.3736 32.0003 40.0519 32.2813 40.552 32.7814C41.0521 33.2815 41.333 33.9597 41.333 34.667V37.3337H42.6663V41.3337H13.333V37.3337H14.6663V34.667C14.6663 33.9597 14.9473 33.2815 15.4474 32.7814C15.9475 32.2813 16.6258 32.0003 17.333 32.0003ZM26.6663 21.3337L31.9997 25.3337L26.6663 29.3337V21.3337ZM17.333 14.667H38.6663C39.3736 14.667 40.0519 14.9479 40.552 15.448C41.0521 15.9481 41.333 16.6264 41.333 17.3337V30.0537C40.5253 29.5776 39.6039 29.3289 38.6663 29.3337V17.3337H17.333V29.3337C16.3597 29.3337 15.453 29.587 14.6663 30.0537V17.3337C14.6663 16.6264 14.9473 15.9481 15.4474 15.448C15.9475 14.9479 16.6258 14.667 17.333 14.667Z"
+                    fill="#003237" />
+                </svg>
+              </div>
+              <div class="category-text">
+                <div class="category-title">Movie Tickets</div>
+                <div class="category-subtitle">2 tickets · Any Show · Any Cinema</div>
+              </div>
+            </div>
+
+            <div class="revamped-banner">
+              <div class="banner-content">
+                <h3>Date Night Sorted.<br>Family Outing Sorted.</h3>
+                <div class="tags">
+                  <span class="tag">Latest in Cinema</span>
+                  <span class="tag">Your Choice of Film</span>
+                  <span class="tag">Any Showtime</span>
+                </div>
+              </div>
+            </div>
+            <div class="feature-grid">
+              <div class="feature-card">
+                <i class="fas fa-ticket"></i>
+                <div class="details">
+                  <div class="feature-value">2</div>
+                  <div class="feature-label">Free Tickets</div>
+                </div>
+              </div>
+              <div class="feature-card">
+                <i class="far fa-calendar-alt"></i>
+                <div class="details">
+                  <div class="feature-value">1 Year</div>
+                  <div class="feature-label">Validity</div>
+                </div>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-clapperboard"></i>
+                <div class="details">
+                  <div class="feature-value">Any</div>
+                  <div class="feature-label">Film, any screen</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="asset-grid">
+              <div class="asset-grid-inner"><button class="asset-grid-btn"
+                  onclick="document.getElementById('movies-section').scrollIntoView({behavior: 'smooth'})">Click to
+                  Explore More <i class="fas fa-arrow-right"></i></button></div>
+              <div class="asset-card">
+                <img src="wow_page_images/multiple_screens.png">
+              </div>
+              <div class="asset-card">
+                <img src="wow_page_images/muliplex_partners.png">
+              </div>
+              <div class="asset-card">
+                <img src="wow_page_images/nationwide_coverage.png">
+              </div>
+            </div>
+
+
+            <button class="explore-btn mobile-only-btn"
+              onclick="document.getElementById('movies-section').scrollIntoView({behavior: 'smooth'})">Click to Explore
+              More <i class="fas fa-chevron-right"></i></button>
+          </div>
+        </div>
+
+        <div class="content-panel" id="insurance">
+          <div class="revamped-panel theme-insurance">
+            <div class="mobile-panel-info">
+              <div class="category-icon-wrapper"><svg width="56" height="56" viewBox="0 0 56 56" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M0 16C0 7.16344 7.16344 0 16 0H40C48.8366 0 56 7.16344 56 16V40C56 48.8366 48.8366 56 40 56H16C7.16344 56 0 48.8366 0 40V16Z"
+                    fill="#ECFFDD" />
+                  <path
+                    d="M28.936 14.9265L38.2693 18.4265C38.7777 18.6171 39.2159 18.9583 39.5251 19.4046C39.8344 19.8508 40.0001 20.3809 40 20.9238V28.0745C40 30.3031 39.3795 32.4876 38.2079 34.3834C37.0363 36.2791 35.3599 37.8112 33.3667 38.8078L28.8947 41.0425C28.6169 41.1814 28.3106 41.2538 28 41.2538C27.6894 41.2538 27.3831 41.1814 27.1053 41.0425L22.6333 38.8065C20.6401 37.8098 18.9637 36.2778 17.7921 34.382C16.6205 32.4863 16 30.3017 16 28.0732V20.9252C15.9997 20.382 16.1652 19.8517 16.4745 19.4051C16.7838 18.9586 17.222 18.6172 17.7307 18.4265L27.064 14.9265C27.6675 14.7003 28.3325 14.7003 28.936 14.9265ZM28 22.6665C27.6734 22.6665 27.3582 22.7864 27.1142 23.0035C26.8701 23.2205 26.7142 23.5195 26.676 23.8438L26.6667 23.9998V26.6665H24C23.6602 26.6669 23.3333 26.797 23.0862 27.0303C22.8391 27.2636 22.6904 27.5824 22.6704 27.9217C22.6505 28.261 22.7609 28.595 22.979 28.8556C23.1971 29.1162 23.5065 29.2837 23.844 29.3238L24 29.3332H26.6667V31.9998C26.667 32.3397 26.7972 32.6665 27.0305 32.9137C27.2638 33.1608 27.5826 33.3095 27.9219 33.3294C28.2611 33.3493 28.5952 33.2389 28.8558 33.0208C29.1164 32.8027 29.2839 32.4933 29.324 32.1558L29.3333 31.9998V29.3332H32C32.3398 29.3328 32.6667 29.2027 32.9138 28.9694C33.1609 28.7361 33.3096 28.4172 33.3296 28.078C33.3495 27.7387 33.2391 27.4047 33.021 27.1441C32.8029 26.8835 32.4935 26.716 32.156 26.6758L32 26.6665H29.3333V23.9998C29.3333 23.6462 29.1929 23.3071 28.9428 23.057C28.6928 22.807 28.3536 22.6665 28 22.6665Z"
+                    fill="#003237" />
+                </svg>
+              </div>
+              <div class="category-text">
+                <div class="category-title">Accidental Insurance</div>
+                <div class="category-subtitle">₹2 Lakh cover · Zero Extra Cost</div>
+              </div>
+            </div>
+
+            <div class="revamped-banner">
+              <div class="banner-content">
+                <h3>
+                  <span class="hide-mobile">Peace of mind doesn't have a price tag.<br>But if it did, it's already
+                    included.</span>
+                  <span class="hide-desktop">Worry-free travel, already included</span>
+                </h3>
+                <div class="tags">
+                  <span class="tag">Zero Extra Cost</span>
+                  <span class="tag">Activated automatically</span>
+                  <span class="tag">Full Year Coverage</span>
+                </div>
+              </div>
+            </div>
+            <div class="feature-grid">
+              <div class="feature-card">
+                <i class="fas fa-shield-halved"></i>
+                <div class="details">
+                  <div class="feature-value">₹ 2 Lakh</div>
+                  <div class="feature-label">Cover Amount</div>
+                </div>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-sack-dollar"></i>
+                <div class="details">
+                  <div class="feature-value">₹ 0</div>
+                  <div class="feature-label">Extra Premium</div>
+                </div>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-bolt"></i>
+                <div class="details">
+                  <div class="feature-value">Instant Activation</div>
+                  <div class="feature-label">With WOW Package</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="asset-grid">
+              <div class="asset-grid-inner"><button class="asset-grid-btn"
+                  onclick="window.location.href='https://wow.stanvee.com/insurance.aspx'">Click to Explore More <i
+                    class="fas fa-arrow-right"></i></button></div>
+              <div class="asset-card">
+                <img src="wow_page_images/injury_protection.png">
+              </div>
+              <div class="asset-card">
+                <img src="wow_page_images/emergency_assistance.png">
+              </div>
+              <div class="asset-card">
+                <img src="wow_page_images/easy_claim.png">
+              </div>
+            </div>
+
+
+            <button class="explore-btn mobile-only-btn"
+              onclick="window.location.href='https://wow.stanvee.com/insurance.aspx'">Click to Explore More <i
+                class="fas fa-chevron-right"></i></button>
+          </div>
+        </div>
+
+        <div class="content-panel" id="shopping">
+          <div class="revamped-panel theme-shopping">
+            <div class="mobile-panel-info">
+              <div class="category-icon-wrapper"><svg width="56" height="56" viewBox="0 0 56 56" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M0 16C0 7.16344 7.16344 0 16 0H40C48.8366 0 56 7.16344 56 16V40C56 48.8366 48.8366 56 40 56H16C7.16344 56 0 48.8366 0 40V16Z"
+                    fill="#FFD8C5" />
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M30.6669 21.3337H25.3336V25.3337C25.3336 25.6873 25.1931 26.0264 24.9431 26.2765C24.693 26.5265 24.3539 26.667 24.0002 26.667C23.6466 26.667 23.3075 26.5265 23.0574 26.2765C22.8074 26.0264 22.6669 25.6873 22.6669 25.3337V21.3337H20.0002C19.6644 21.3337 19.3409 21.4604 19.0945 21.6886C18.848 21.9167 18.6968 22.2295 18.6709 22.5643L17.4482 38.463C17.4201 38.8293 17.468 39.1974 17.5889 39.5443C17.7098 39.8913 17.901 40.2095 18.1506 40.479C18.4002 40.7485 18.7029 40.9636 19.0395 41.1106C19.3761 41.2577 19.7395 41.3336 20.1069 41.3337H35.8936C36.2609 41.3336 36.6243 41.2577 36.961 41.1106C37.2976 40.9636 37.6002 40.7485 37.8499 40.479C38.0995 40.2095 38.2907 39.8913 38.4116 39.5443C38.5325 39.1974 38.5803 38.8293 38.5522 38.463L37.3296 22.5643C37.3037 22.2295 37.1524 21.9167 36.906 21.6886C36.6596 21.4604 36.3361 21.3337 36.0002 21.3337H33.3336V25.3337C33.3336 25.6873 33.1931 26.0264 32.9431 26.2765C32.693 26.5265 32.3539 26.667 32.0002 26.667C31.6466 26.667 31.3075 26.5265 31.0574 26.2765C30.8074 26.0264 30.6669 25.6873 30.6669 25.3337V21.3337ZM28.0002 17.3337C27.293 17.3337 26.6147 17.6146 26.1146 18.1147C25.6145 18.6148 25.3336 19.2931 25.3336 20.0003V21.3337H22.6669V20.0003C22.6669 18.5858 23.2288 17.2293 24.229 16.2291C25.2292 15.2289 26.5858 14.667 28.0002 14.667C29.4147 14.667 30.7713 15.2289 31.7715 16.2291C32.7717 17.2293 33.3336 18.5858 33.3336 20.0003V21.3337H30.6669V20.0003C30.6669 19.2931 30.386 18.6148 29.8859 18.1147C29.3858 17.6146 28.7075 17.3337 28.0002 17.3337Z"
+                    fill="black" />
+                </svg>
+              </div>
+              <div class="category-text">
+                <div class="category-title">Shopping Coupon</div>
+                <div class="category-subtitle">₹5,000 · 1 lakh+ products · 10k brands</div>
+              </div>
+            </div>
+
+            <div class="revamped-banner">
+              <div class="banner-content">
+                <h3>
+                  <span class="hide-mobile">Kitchen appliances. Bluetooth speakers.<br>Shop smart. Save big.</span>
+                  <span class="hide-desktop">Appliances. Speakers. Smarter savings</span>
+                </h3>
+                <div class="tags">
+                  <span class="tag">1 Lakh+ Products</span>
+                  <span class="tag">10,000+ Brands</span>
+                  <span class="tag">Electronics to Kitchenware</span>
+                </div>
+              </div>
+            </div>
+            <div class="feature-grid">
+              <div class="feature-card">
+                <i class="fas fa-ticket-alt"></i>
+                <div class="details">
+                  <div class="feature-value">5,000 Points</div>
+                  <div class="feature-label">Coupon Value</div>
+                </div>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-box"></i>
+                <div class="details">
+                  <div class="feature-value">1 Lakh+</div>
+                  <div class="feature-label">Products</div>
+                </div>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-truck"></i>
+                <div class="details">
+                  <div class="feature-value">Fast</div>
+                  <div class="feature-label">Doorstep Delivery</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="asset-grid">
+              <div class="asset-grid-inner"><button class="asset-grid-btn"
+                  onclick="document.getElementById('shopping-section').scrollIntoView({behavior: 'smooth'})">Click to
+                  Explore More <i class="fas fa-arrow-right"></i></button></div>
+              <div class="asset-card">
+                <img src="wow_page_images/bluetooth_speakers.png">
+              </div>
+              <div class="asset-card">
+                <img src="wow_page_images/kitchen_appliances.png">
+              </div>
+              <div class="asset-card">
+                <img src="wow_page_images/headphones_gadgets.png">
+              </div>
+            </div>
+
+
+            <button class="explore-btn mobile-only-btn"
+              onclick="document.getElementById('shopping-section').scrollIntoView({behavior: 'smooth'})">Click to
+              Explore More <i class="fas fa-chevron-right"></i></button>
+          </div>
+        </div>
+
+        <div class="content-panel" id="scratch">
+          <div class="revamped-panel theme-scratch">
+            <div class="mobile-panel-info">
+              <div class="category-icon-wrapper"><svg width="56" height="56" viewBox="0 0 56 56" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M0 16C0 7.16344 7.16344 0 16 0H40C48.8366 0 56 7.16344 56 16V40C56 48.8366 48.8366 56 40 56H16C7.16344 56 0 48.8366 0 40V16Z"
+                    fill="#FFD8C5" />
+                  <path
+                    d="M18.6663 28.0003L21.333 22.667V21.3337H17.333V22.667H19.9997L17.333 28.0003M23.9997 28.0003L26.6663 22.667V21.3337H22.6663V22.667H25.333L22.6663 28.0003M29.333 28.0003L31.9997 22.667V21.3337H27.9997V22.667H30.6663L27.9997 28.0003M39.9997 14.667C38.533 14.667 37.333 15.867 37.333 17.3337C37.333 18.267 37.8663 19.2003 38.6663 19.6003V34.667H34.6663V32.0003C35.4663 32.0003 35.9997 31.467 35.9997 30.667V18.667C35.9997 17.867 35.4663 17.3337 34.6663 17.3337H29.5997C28.533 15.7337 26.6663 14.667 24.6663 14.667C22.6663 14.667 20.7997 15.7337 19.733 17.3337H14.6663C13.8663 17.3337 13.333 17.867 13.333 18.667V30.667C13.333 31.467 13.8663 32.0003 14.6663 32.0003V41.3337H34.6663V37.3337H38.6663C40.133 37.3337 41.333 36.1337 41.333 34.667V19.6003C42.133 19.2003 42.6663 18.267 42.6663 17.3337C42.6663 15.867 41.4663 14.667 39.9997 14.667ZM29.333 37.3337H19.9997V34.667H29.333V37.3337ZM33.333 29.3337H15.9997V20.0003H33.333V29.3337Z"
+                    fill="#2F0F00" />
+                </svg>
+              </div>
+              <div class="category-text">
+                <div class="category-title">Scratch Card</div>
+                <div class="category-subtitle">Win ₹2,500 - ₹15,000@₹699*</div>
+              </div>
+            </div>
+
+            <div class="revamped-banner">
+              <div class="banner-content">
+                <h3>
+                  <span class="hide-mobile">Scratch the card.<br>Reveal your prize. It's that easy.</span>
+                  <span class="hide-desktop">Scratch. Reveal. Win instantly</span>
+                </h3>
+                <div class="tags">
+                  <span class="tag">Digital Card/Physical Card</span>
+                  <span class="tag">Real Physical Prizes</span>
+                  <span class="tag">Quick and Easy</span>
+                </div>
+              </div>
+            </div>
+            <div class="feature-grid">
+              <div class="feature-card">
+                <i class="fas fa-credit-card"></i>
+                <div class="details">
+                  <div class="feature-value">₹2.5k - ₹15k</div>
+                  <div class="feature-label">Worth of Prizes</div>
+                </div>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-hand-holding-dollar"></i>
+                <div class="details">
+                  <div class="feature-value">₹699</div>
+                  <div class="feature-label">Your Price</div>
+                </div>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-boxes-stacked"></i>
+                <div class="details">
+                  <div class="feature-value">Curated Range</div>
+                  <div class="feature-label">Of our products</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="asset-grid">
+              <div class="asset-grid-inner"><button class="asset-grid-btn"
+                  onclick="document.getElementById('scratch-section').scrollIntoView({behavior: 'smooth'})">Click to
+                  Explore More <i class="fas fa-arrow-right"></i></button></div>
+              <div class="asset-card">
+                <img src="wow_page_images/scratch_win.png">
+              </div>
+              <div class="asset-card">
+                <img src="wow_page_images/30_products.png">
+              </div>
+              <div class="asset-card">
+                <img src="wow_page_images/scratch_away.png">
+              </div>
+            </div>
+
+
+            <button class="explore-btn mobile-only-btn"
+              onclick="document.getElementById('scratch-section').scrollIntoView({behavior: 'smooth'})">Click to Explore
+              More <i class="fas fa-chevron-right"></i></button>
+          </div>
+        </div>
+
+        <div class="content-panel" id="product">
+          <div class="revamped-panel theme-product">
+            <div class="mobile-panel-info">
+              <div class="category-icon-wrapper"><svg width="56" height="56" viewBox="0 0 56 56" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M0 16C0 7.16344 7.16344 0 16 0H40C48.8366 0 56 7.16344 56 16V40C56 48.8366 48.8366 56 40 56H16C7.16344 56 0 48.8366 0 40V16Z"
+                    fill="#C3FAFF" />
+                  <g clip-path="url(#clip0_1433_6122)">
+                    <path
+                      d="M18 17C18 15.6739 18.5268 14.4021 19.4645 13.4645C20.4021 12.5268 21.6739 12 23 12C24.3261 12 25.5979 12.5268 26.5355 13.4645C27.4732 14.4021 28 15.6739 28 17C28 15.6739 28.5268 14.4021 29.4645 13.4645C30.4021 12.5268 31.6739 12 33 12C34.3261 12 35.5979 12.5268 36.5355 13.4645C37.4732 14.4021 38 15.6739 38 17V17.012C38 17.152 38 17.552 37.924 18H42C42.5304 18 43.0391 18.2107 43.4142 18.5858C43.7893 18.9609 44 19.4696 44 20V22C44 22.5304 43.7893 23.0391 43.4142 23.4142C43.0391 23.7893 42.5304 24 42 24H14C13.4696 24 12.9609 23.7893 12.5858 23.4142C12.2107 23.0391 12 22.5304 12 22V20C12 19.4696 12.2107 18.9609 12.5858 18.5858C12.9609 18.2107 13.4696 18 14 18H18.076C18.0235 17.6733 17.998 17.3429 18 17.012V17ZM20.136 18H26V17C26 16.606 25.9224 16.2159 25.7716 15.8519C25.6209 15.488 25.3999 15.1573 25.1213 14.8787C24.8427 14.6001 24.512 14.3791 24.1481 14.2284C23.7841 14.0776 23.394 14 23 14C22.606 14 22.2159 14.0776 21.8519 14.2284C21.488 14.3791 21.1573 14.6001 20.8787 14.8787C20.6001 15.1573 20.3791 15.488 20.2284 15.8519C20.0776 16.2159 20 16.606 20 17C20 17.17 20.004 17.548 20.09 17.86L20.136 18ZM30 18H35.864L35.91 17.86C35.996 17.548 36 17.17 36 17C36 16.2044 35.6839 15.4413 35.1213 14.8787C34.5587 14.3161 33.7956 14 33 14C32.2044 14 31.4413 14.3161 30.8787 14.8787C30.3161 15.4413 30 16.2044 30 17V18ZM42 26V41C42 41.7956 41.6839 42.5587 41.1213 43.1213C40.5587 43.6839 39.7956 44 39 44H30V26H42ZM17 44C16.2044 44 15.4413 43.6839 14.8787 43.1213C14.3161 42.5587 14 41.7956 14 41V26H26V44H17Z"
+                      fill="black" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1433_6122">
+                      <rect width="32" height="32" fill="white" transform="translate(12 12)" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
+              <div class="category-text">
+                <div class="category-title">Free Product</div>
+                <div class="category-subtitle">Choose any 1 product · Yours, on us</div>
+              </div>
+            </div>
+
+            <div class="revamped-banner">
+              <div class="banner-content">
+                <h3>
+                  <span class="hide-mobile">Choose any one product from our collection.<br>Yours, on us.</span>
+                  <span class="hide-desktop">Choose one. Yours' on us</span>
+                </h3>
+                <div class="tags">
+                  <span class="tag">Your Choice of Product</span>
+                  <span class="tag">No Minimum Spend</span>
+                  <span class="tag">Select Range of Products</span>
+                </div>
+              </div>
+            </div>
+            <div class="feature-grid">
+              <div class="feature-card">
+                <i class="fas fa-gift"></i>
+                <div class="details">
+                  <div class="feature-value">FREE !</div>
+                  <div class="feature-label">Product of your choice</div>
+                </div>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-square-check"></i>
+                <div class="details">
+                  <div class="feature-value">₹0</div>
+                  <div class="feature-label">Your Price</div>
+                </div>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-table-cells-large"></i>
+                <div class="details">
+                  <div class="feature-value">Your choice</div>
+                  <div class="feature-label">From our curated selection</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="asset-grid">
+              <div class="asset-grid-inner"><button class="asset-grid-btn"
+                  onclick="document.getElementById('product-section').scrollIntoView({behavior: 'smooth'})">Click to
+                  Explore More <i class="fas fa-arrow-right"></i></button></div>
+              <div class="asset-card">
+                <img src="wow_page_images/our_gift.png">
+              </div>
+              <div class="asset-card">
+                <img src="wow_page_images/no_money_spent.png">
+              </div>
+              <div class="asset-card">
+                <img src="wow_page_images/choose_from_selection.png">
+              </div>
+            </div>
+
+
+            <button class="explore-btn mobile-only-btn"
+              onclick="document.getElementById('product-section').scrollIntoView({behavior: 'smooth'})">Click to Explore
+              More <i class="fas fa-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="wow-pagination hide-desktop"></div>
+  </section>
+
+  <section class="section3 process">
+    <div class="process-container">
+      <p class="subheading">SIMPLE PROCESS</p>
+      <h2 class="heading">3 Steps. <span class="script">That's All</span></h2>
+
+      <div class="process-card">
+        <div class="steps">
+          <div class="step">
+            <div class="process-icons">
+              <svg width="56" height="49" viewBox="0 0 56 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M31.068 37.244L27.552 28.984L23.538 38.49L8.498 31.91L8.848 39.722L27.722 48.47L49.542 37.74L49.242 27.76L31.068 37.244ZM55.82 6.476L33.952 0L27.942 5.34L21.762 0.624L0 9.636L7.592 15.73L0.732 26.336L22.492 35.848L27.552 23.852L32.064 34.468L54.85 22.584L48.64 13.164L55.824 6.474L55.82 6.476ZM27.466 22.396L9.346 14.736L27.898 6.532L47.112 13.042L27.466 22.396Z"
+                  fill="#FF7637" />
+              </svg>
+            </div>
+            <p class="step-title">STEP 01</p>
+            <h3>Buy your<br>WOW Package online</h3>
+            <p class="desc">
+              Takes 2 minutes. Pay Rs. 999 via payment gateway. Instant confirmation by SMS and email.
+            </p>
+          </div>
+
+          <div class="step-connector"></div>
+
+          <div class="step">
+            <div class="process-icons">
+              <i class='fas fa-mobile-alt'></i>
+            </div>
+            <p class="step-title">STEP 02</p>
+            <h3>Log in and explore your 5 benefits</h3>
+            <p class="desc">
+              Hotels, movies, shopping, insurance, scratch card – all waiting in your member portal within 24 hours.
+            </p>
+          </div>
+
+          <div class="step-connector"></div>
+
+          <div class="step">
+            <div class="process-icons">
+              <svg width="50" height="52" viewBox="0 0 50 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12.5406 39.175C10.4406 37.075 8.54065 34.875 6.91565 32.675C5.94065 31.35 5.11565 30.05 4.36565 28.775L0.415646 40.875C-0.065117 42.3245 -0.130236 43.8797 0.227671 45.3644C0.585577 46.849 1.3522 48.2038 2.44065 49.275C4.01565 50.85 6.11565 51.7 8.26565 51.7C9.11565 51.7 9.99065 51.575 10.8406 51.3L22.9406 47.35C21.6656 46.6 20.3656 45.775 19.0406 44.8C16.8406 43.175 14.6406 41.275 12.5406 39.175ZM36.2656 15.45C36.0156 15.2 35.7406 14.95 35.4656 14.675C36.2156 13.4 36.6906 11.875 36.6906 10C36.6906 2.675 30.7156 0 26.6906 0V5C27.8406 5 31.6906 5.425 31.6906 10C31.6906 10.425 31.6156 10.8 31.5156 11.15C24.3406 5.325 16.3656 1.775 12.4156 5.725C11.9906 6.15 11.6156 6.675 11.3156 7.35C11.0156 8.025 11.2156 7.65 11.2156 7.65C11.1156 7.9 11.0406 8.125 10.9656 8.4L6.59065 21.825C6.79065 22.475 7.09065 23.275 7.54065 24.225C8.36565 25.95 9.49065 27.775 10.9156 29.7C12.4156 31.725 14.1406 33.7 16.0656 35.65C17.9906 37.575 19.9906 39.325 22.0156 40.8C23.9156 42.225 25.7656 43.35 27.4906 44.175C28.4406 44.625 29.2156 44.925 29.8656 45.125L43.2906 40.75C43.6156 40.675 43.9406 40.575 44.2406 40.45H44.3406V40.4C44.9406 40.125 45.4906 39.775 45.9656 39.3C47.5406 37.725 48.7906 34.55 45.8156 28.325C44.7752 26.2097 43.5452 24.1931 42.1406 22.3C44.0406 21 46.3906 20.025 49.2156 20.025V15.025C45.0406 15.025 41.6406 16.5 39.0156 18.375C38.1406 17.4 37.2406 16.425 36.2906 15.45H36.2656ZM42.4156 35.75C42.4156 35.75 42.3906 35.75 42.3656 35.775L41.7406 35.975C39.5656 36.125 33.1406 33.55 25.6406 26.05C21.8156 22.225 18.7906 18.15 17.0656 14.575C15.8906 12.1 15.6906 10.5 15.7906 9.75L15.9156 9.325V9.275C16.0656 9.125 16.3656 9.05 16.7906 9.05C18.5656 9.05 22.5906 10.575 27.6156 14.475C25.9156 14.975 24.2906 15.025 24.1656 15.025V20.025C26.2656 20.025 29.2656 19.525 31.7906 18.125C32.0906 18.425 32.3906 18.675 32.7156 19C33.6156 19.9 34.4656 20.8 35.2656 21.725C33.1406 24.1 32.0406 26.225 31.9656 26.425L36.4406 28.65C36.4406 28.65 37.1406 27.3 38.4406 25.725C39.5906 27.35 40.5906 28.95 41.3156 30.475C42.8656 33.725 42.7406 35.475 42.4406 35.775L42.4156 35.75Z"
+                  fill="#FF7637" />
+              </svg>
+
+            </div>
+            <p class="step-title">STEP 03</p>
+            <h3>Start using and saving</h3>
+            <p class="desc">
+              It really is that simple. Redeem any benefit anytime within your
+              365-day membership year.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section4 movies-carousel-section" id="movies-section">
+    <div class="movies-container">
+      <div class="movies-header">
+        <p class="movies-subheading">NOW SHOWING</p>
+        <h2 class="movies-heading">Choose your <span class="italic-serif">Preferred Movie</span></h2>
+      </div>
+
+      <div class="movie-carousel" id="movieCarousel">
+        <button class="movie-nav-btn prev" id="moviePrev">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <div class="movie-track-container">
+          <div class="movie-track" id="movieTrack">
+            <div class="movie-slide" data-index="0">
+              <div class="movie-poster">
+                <img src="wow_page_images/ustaad.png" alt="Ustaad">
+              </div>
+              <div class="movie-info">
+                <h3 class="movie-title">Ustaad</h3>
+                <div class="movie-meta-row">
+                  <span class="movie-badge">U/A 13+</span>
+                  <span class="movie-meta">Telugu, Tamil</span>
+                </div>
+              </div>
+            </div>
+            <div class="movie-slide" data-index="1">
+              <div class="movie-poster">
+                <img src="wow_page_images/biker_poster.png" alt="Biker">
+              </div>
+              <div class="movie-info">
+                <h3 class="movie-title">Biker</h3>
+                <div class="movie-meta-row">
+                  <span class="movie-badge">U/A 13+</span>
+                  <span class="movie-meta">Telugu, Tamil, Malayalam</span>
+                </div>
+              </div>
+            </div>
+            <div class="movie-slide" data-index="2">
+              <div class="movie-poster">
+                <img src="wow_page_images/dhurandar_poster.png" alt="Dhurandar: The Revenge">
+              </div>
+              <div class="movie-info">
+                <h3 class="movie-title">Dhurandar: The Revenge</h3>
+                <div class="movie-meta-row">
+                  <span class="movie-badge">A 18+</span>
+                  <span class="movie-meta">Hindi, Telugu, Tamil, Kannada</span>
+                </div>
+              </div>
+            </div>
+            <div class="movie-slide" data-index="3">
+              <div class="movie-poster">
+                <img src="wow_page_images/hail_mary_poster.png" alt="Project Hail Mary">
+              </div>
+              <div class="movie-info">
+                <h3 class="movie-title">Project Hail Mary</h3>
+                <div class="movie-meta-row">
+                  <span class="movie-badge">U/A 13+</span>
+                  <span class="movie-meta">English, Hindi, Telugu, Tamil</span>
+                </div>
+              </div>
+            </div>
+            <div class="movie-slide" data-index="4">
+              <div class="movie-poster">
+                <img src="wow_page_images/assi.png" alt="Asur">
+              </div>
+              <div class="movie-info">
+                <h3 class="movie-title">Asur</h3>
+                <div class="movie-meta-row">
+                  <span class="movie-badge">A 18+</span>
+                  <span class="movie-meta">Hindi</span>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+
+        <button class="movie-nav-btn next" id="movieNext">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <div class="movies-cta">
+        <a href="http://movie.stanvee.com/" target="_blank" class="orange-pill-btn">
+          Browse the latest movies <span><i class="fas fa-arrow-right"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section5 shop-points-section" id="shopping-section">
+    <div class="shop-points-container">
+      <div class="shop-points-header">
+        <p class="shop-points-label">REDEEM. SHOP. ENJOY</p>
+        <h2 class="shop-points-heading">Redeem 5K points instantly</h2>
+        <h3 class="shop-points-subheading">with your <span class="italic-serif">WOW Package</span></h3>
+      </div>
+
+      <div class="shop-carousel-container">
+        <button class="shop-nav-btn prev" id="shopPrev">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <div class="shop-track-container">
+          <div class="shop-track" id="shopTrack">
+            <!-- Slide 1: Bluetooth Speaker -->
+            <div class="shop-slide" data-index="0">
+              <div class="shop-card">
+                <div class="shop-card-image">
+                  <img src="wow_page_images/bt_speakers.png" alt="Bluetooth Speaker">
+                </div>
+                <div class="shop-card-info">
+                  <h4 class="product-title">Bluetooth Speaker</h4>
+                  <div class="shop-rating-badge">4.3 ★</div>
+                  <div class="price-row">
+                    <span class="current-price">₹4,590</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2: Lock Master (Safe) -->
+            <div class="shop-slide" data-index="1">
+              <div class="shop-card">
+                <div class="shop-card-badge">SECURE</div>
+                <div class="shop-card-image">
+                  <img src="wow_page_images/lock_master.png" alt="Lock Master">
+                </div>
+                <div class="shop-card-info">
+                  <h4 class="product-title">Lock Master</h4>
+                  <div class="shop-rating-badge">4.3 ★</div>
+                  <div class="price-row">
+                    <span class="current-price">₹7,490</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3: Multi-Utility Mixer and Juicer -->
+            <div class="shop-slide" data-index="2">
+              <div class="shop-card">
+                <div class="shop-card-image">
+                  <img src="wow_page_images/mixer_juicer.png" alt="Multi-Utility Mixer and Juicer">
+                </div>
+                <div class="shop-card-info">
+                  <h4 class="product-title">Multi-Utility Mixer and Juicer</h4>
+                  <div class="shop-rating-badge">4.7 ★</div>
+                  <div class="price-row">
+                    <span class="current-price">₹3,499</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 4: Toasty Delight Sandwich Maker -->
+            <div class="shop-slide" data-index="3">
+              <div class="shop-card">
+                <div class="shop-card-image">
+                  <img src="wow_page_images/toaster.png" alt="Toasty Delight Sandwich Maker">
+                </div>
+                <div class="shop-card-info">
+                  <h4 class="product-title">Toasty Delight Sandwich Maker</h4>
+                  <div class="shop-rating-badge">4.5 ★</div>
+                  <div class="price-row">
+                    <span class="current-price">₹3,190</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 5: Bath Towel Set -->
+            <div class="shop-slide" data-index="4">
+              <div class="shop-card">
+                <div class="shop-card-image">
+                  <img src="wow_page_images/bath_towel_set.png" alt="Bath Towel Set">
+                </div>
+                <div class="shop-card-info">
+                  <h4 class="product-title">Bath Towel Set</h4>
+                  <div class="shop-rating-badge">4.2 ★</div>
+                  <div class="price-row">
+                    <span class="current-price">₹1,040</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="shop-nav-btn next" id="shopNext">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <div class="shop-cta">
+        <a href="https://shop.stanvee.com/" target="_blank" class="white-pill-btn">
+          Start Shopping Now! <span><i class="fas fa-arrow-right"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section6 scratch-card-section" id="scratch-section">
+    <div class="scratch-card-container">
+      <div class="scratch-card-header">
+        <p class="scratch-label">WIN UPTO ₹15,000 @ ₹699*</p>
+        <h2 class="scratch-heading">Try your Luck with our <span class="italic-serif">Scratch Card</span>
+        </h2>
+      </div>
+
+      <div class="scratch-carousel-container">
+        <button class="scratch-nav-btn prev" id="scratchPrev">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <div class="scratch-track-container">
+          <div class="scratch-track" id="scratchTrack">
+            <!-- Slide 1: Kitchen Queen Knife -->
+            <div class="scratch-slide" data-index="0">
+              <div class="scratch-card">
+                <div class="scratch-card-image">
+                  <img src="wow_page_images/knife_set.png" alt="Kitchen Queen Knife">
+                </div>
+              </div>
+              <div class="scratch-card-info">
+                <h4 class="product-title">Kitchen Queen Knife</h4>
+                <div class="price-row">
+                  <span class="current-price">₹2,500</span>
+                </div>
+                <div class="scratch-badge">Scratch to Win</div>
+              </div>
+            </div>
+
+            <!-- Slide 2: Air Fryer 4.5 Ltr -->
+            <div class="scratch-slide" data-index="1">
+              <div class="scratch-card">
+                <div class="scratch-card-image">
+                  <img src="wow_page_images/air_fryer.png" alt="Air Fryer 4.5 Ltr">
+                </div>
+              </div>
+              <div class="scratch-card-info">
+                <h4 class="product-title">Air Fryer 4.5 Ltr</h4>
+                <div class="price-row">
+                  <span class="current-price">₹9,990</span>
+                </div>
+                <div class="scratch-badge">Scratch to Win</div>
+              </div>
+            </div>
+
+            <!-- Slide 3: Juice Mate Pro -->
+            <div class="scratch-slide" data-index="2">
+              <div class="scratch-card">
+                <div class="scratch-card-image">
+                  <img src="wow_page_images/juicer.png" alt="Juice Mate Pro">
+                </div>
+              </div>
+              <div class="scratch-card-info">
+                <h4 class="product-title">Juice Mate Pro</h4>
+                <div class="price-row">
+                  <span class="current-price">₹14,999</span>
+                </div>
+                <div class="scratch-badge">Scratch to Win</div>
+              </div>
+            </div>
+
+            <!-- Slide 4: Branded Jeans -->
+            <div class="scratch-slide" data-index="3">
+              <div class="scratch-card">
+                <div class="scratch-card-image">
+                  <img src="wow_page_images/branded_jeans.png" alt="Branded Jeans">
+                </div>
+              </div>
+              <div class="scratch-card-info">
+                <h4 class="product-title">Branded Jeans</h4>
+                <div class="price-row">
+                  <span class="current-price">₹3,999</span>
+                </div>
+                <div class="scratch-badge">Scratch to Win</div>
+              </div>
+            </div>
+
+            <!-- Slide 5: Luxury Watch -->
+            <div class="scratch-slide" data-index="4">
+              <div class="scratch-card">
+                <div class="scratch-card-image">
+                  <img src="wow_page_images/luxury_watch.png" alt="Luxury Watch">
+                </div>
+              </div>
+              <div class="scratch-card-info">
+                <h4 class="product-title">Luxury Watch</h4>
+                <div class="price-row">
+                  <span class="current-price">₹4,500</span>
+                </div>
+                <div class="scratch-badge">Scratch to Win</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="scratch-nav-btn next" id="scratchNext">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <div class="scratch-cta">
+        <a href="https://wow.stanvee.com/ScratchCard.aspx" target="_blank" class="orange-pill-cta">
+          Try Your Luck <span><i class="fas fa-arrow-right"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="section7 free-product-section" id="product-section">
+    <div class="free-product-container">
+      <div class="free-product-header">
+        <p class="free-product-label">FREE PRODUCT</p>
+        <h2 class="free-product-heading">Pick One. <span class="italic-serif">It's Free.</span></h2>
+      </div>
+
+      <div class="free-product-carousel-container">
+        <button class="free-product-nav-btn prev" id="freeProductPrev">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <div class="free-product-grid">
+          <!-- Product 1: Swift Sling Bag -->
+          <div class="free-product-card">
+            <div class="free-product-image">
+              <img src="wow_page_images/swift_sling_bag.png" alt="Swift Sling Bag">
+            </div>
+            <div class="free-product-info">
+              <h4 class="product-title">Swift Sling Bag</h4>
+              <div class="rating-badge">4.2 ★</div>
+              <div class="price-row">
+                <span class="free-tag">- FREE</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 2: Sports Guard Thermos -->
+          <div class="free-product-card">
+            <div class="free-product-image">
+              <img src="wow_page_images/sports_guard_thermos.png" alt="Sports Guard Thermos Steel">
+            </div>
+            <div class="free-product-info">
+              <h4 class="product-title">Sports Guard Thermos Steel</h4>
+              <div class="rating-badge">4.7 ★</div>
+              <div class="price-row">
+                <span class="free-tag">- FREE</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 3: Flexi Drain Filter Basket -->
+          <div class="free-product-card">
+            <div class="free-product-image">
+              <img src="wow_page_images/flexi_drain_filter_basket.png" alt="Flexi Drain Filter Basket">
+            </div>
+            <div class="free-product-info">
+              <h4 class="product-title">Flexi Drain Filter Basket</h4>
+              <div class="rating-badge">4.6 ★</div>
+              <div class="price-row">
+                <span class="free-tag">- FREE</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 4: Neck Mate Travel Neck Pillow -->
+          <div class="free-product-card">
+            <div class="free-product-image">
+              <img src="wow_page_images/neck_pillow.png" alt="Neck Mate Travel Neck Pillow">
+            </div>
+            <div class="free-product-info">
+              <h4 class="product-title">Neck Mate Travel Neck Pillow</h4>
+              <div class="rating-badge">4.0 ★</div>
+              <div class="price-row">
+                <span class="free-tag">- FREE</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="free-product-nav-btn next" id="freeProductNext">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="free-product-cta">
+      <a href="https://wow.stanvee.com/freeProduct.aspx" target="_blank" class="white-pill-btn">
+        Claim Your Free Poduct <span><i class="fas fa-arrow-right"></i></span>
+      </a>
+    </div>
+    </div>
+  </section>
+
+  <section class="section8 destinations" id="holiday-section">
+    <div class="destinations-container">
+
+      <p class="destinations-subheading">INCLUDED WITH YOUR WOW CARD</p>
+      <h2 class="destinations-heading">
+        Where will your WOW Card <span>take you?</span>
+      </h2>
+      <p class="description">
+        Pack Your Bags — Your 2-Night Getaway Awaits.
+      </p>
+
+      <div class="destinations-scroller">
+        <div class="destinations-grid">
+          <div class="destinations-card manali-card">
+            <span class="state-tag">Himachal Pradesh</span>
+            <img src="wow_page_images/manali_new.jpg" alt="Manali">
+            <div class="destinations-overlay">
+              <h3>Manali</h3>
+              <p>Snowy peaks, pine forests</p>
+              <a href="#">BOOK NOW <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="destinations-card ooty-card">
+            <span class="state-tag">Tamil Nadu</span>
+            <img src="wow_page_images/ooty_new.jpg" alt="Ooty">
+            <div class="destinations-overlay">
+              <h3>Ooty</h3>
+              <p>Tea Gardens</p>
+              <a href="#">BOOK NOW <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="destinations-card puri-card">
+            <span class="state-tag">Odisha</span>
+            <img src="wow_page_images/puri_new.jpg" alt="Puri">
+            <div class="destinations-overlay">
+              <h3>Puri</h3>
+              <p>Jagannath Temple</p>
+              <a href="#">BOOK NOW <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="destinations-card amritsar-card">
+            <span class="state-tag">Punjab</span>
+            <img src="wow_page_images/amritsar_new.jpg" alt="Amritsar">
+            <div class="destinations-overlay">
+              <h3>Amritsar</h3>
+              <p>Golden Temple</p>
+              <a href="#">BOOK NOW <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="destinations-slider">
+          <div class="destinations-card agra-card">
+            <span class="state-tag">Uttar Pradesh</span>
+            <img src="wow_page_images/agra_new.jpg" alt="Agra">
+            <div class="destinations-overlay">
+              <h3>Agra</h3>
+              <p>Taj Mahal</p>
+              <a href="#">BOOK NOW <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="destinations-card mysore-card">
+            <span class="state-tag">Karnataka</span>
+            <img src="wow_page_images/mysore_new.jpg" alt="Mysore">
+            <div class="destinations-overlay">
+              <h3>Mysore</h3>
+              <p>Royal Palaces</p>
+              <a href="#">BOOK NOW <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="destinations-card jaipur-card">
+            <span class="state-tag">Rajasthan</span>
+            <img src="wow_page_images/jaipur_new.jpg" alt="Jaipur">
+            <div class="destinations-overlay">
+              <h3>Jaipur</h3>
+              <p>Hawa Mahal, Pink City</p>
+              <a href="#">BOOK NOW <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="destinations-cta">
+        <a href="https://holiday.stanvee.com/destination.aspx">Explore Destinations <i
+            class="fas fa-arrow-right"></i></a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section9 reviews">
+    <div class="ellipse-tl"></div>
+    <div class="ellipse-br"></div>
+    <div class="reviews-container">
+      <div class="reviews-header">
+        <p class="reviews-subheading">DON'T JUST TAKE OUR WORD FOR IT</p>
+        <h2 class="reviews-heading">
+          <span class="reviews-heading-main">15 Years.</span>
+          <span class="reviews-heading-secondary">One Million Happy Members.</span>
+        </h2>
+      </div>
+
+      <div class="stats-cards">
+        <div class="stat-card">
+          <div class="stat-number">15+</div>
+          <div class="stat-label">YEARS IN INDUSTRY</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">10,000+</div>
+          <div class="stat-label">BRANDS</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">Pan-India</div>
+          <div class="stat-label">OPERATIONS</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">1,00,000+</div>
+          <div class="stat-label">PRODUCTS</div>
+        </div>
+      </div>
+
+      <div class="reviews-carousel">
+        <div class="reviews-wrapper">
+          <div class="review-card">
+            <p class="review-text">Went with my friend to Manali on the holiday benefit. 3-star hotel, no extra charges.
+              For Rs. 999 this is genuinely unbeatable.</p>
+            <div class="review-author">
+              <span>Rajan S., Bengaluru</span>
+            </div>
+            <div class="review-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <p class="review-text">Won Rs. 4,500 on the scratch card. Redeemed it for Pantaloons + Starbucks. Still
+              can't believe it was included in Rs. 999.</p>
+            <div class="review-author">
+              <span>Aditi K., Pune</span>
+            </div>
+            <div class="review-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <p class="review-text">Used the movie tickets for a date night. Shopping coupon covered a Philips earphone
+              for my friend. Will 100% renew next year.</p>
+            <div class="review-author">
+              <span>Priya M., Delhi</span>
+            </div>
+            <div class="review-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <p class="review-text">The accidental insurance gave me peace of mind during my trip. Got the free product -
+              a nice water bottle. Excellent value!</p>
+            <div class="review-author">
+              <span>Vikram R., Mumbai</span>
+            </div>
+            <div class="review-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <p class="review-text">Booked a weekend getaway to Mysore. Used the shopping voucher for groceries. This
+              membership pays for itself multiple times over.</p>
+            <div class="review-author">
+              <span>Neha P., Chennai</span>
+            </div>
+            <div class="review-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <p class="review-text">Perfect for families! Used the hotel benefit for a trip to Jaipur with kids. No
+              hidden costs, everything included. Highly recommend!</p>
+            <div class="review-author">
+              <span>Amit S., Ahmedabad</span>
+            </div>
+            <div class="review-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-navigation">
+          <button class="nav-btn prev-btn" id="prevBtn">
+            <i class='fas fa-caret-left'></i>
+          </button>
+          <button class="nav-btn next-btn" id="nextBtn">
+            <i class='fas fa-caret-right'></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section10 faq-section">
+    <div class="faq-container">
+      <p class="sub-heading">GOT QUESTIONS? WE HAVE ANSWERS</p>
+      <h1 class="main-heading">Frequently Asked Questions</h1>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span class="faq-question-text">How long is the WOW Package valid?</span>
+            <span class="faq-question-icon arrow-circle">
+              <svg width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0L8 8L16 0L0 0Z" fill="black" />
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <p>The WOW Card benefits are valid for the period mentioned at the time of purchase. Check the terms for
+              specific validity on each benefit.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span class="faq-question-text">Can I gift the WOW Package?</span>
+            <span class="faq-question-icon arrow-circle">
+              <svg width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0L8 8L16 0L0 0Z" fill="black" />
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <p>Absolutely! The WOW Card makes a perfect gift. Buy it for family, friends, or colleagues.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span class="faq-question-text">Is the hotel stay really included?</span>
+            <span class="faq-question-icon arrow-circle">
+              <svg width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0L8 8L16 0L0 0Z" fill="black" />
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. 2 Nights / 3 Days at a 3-star or above hotel. Choose from 8+ destinations across India. Plus Rs.
+              1,000 food coupon.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span class="faq-question-text">How does the Scratch Card work?</span>
+            <span class="faq-question-icon arrow-circle">
+              <svg width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0L8 8L16 0L0 0Z" fill="black" />
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <p>After buying the WOW Card, you can purchase a Scratch Card for Rs. 699 and reveal a product worth Rs.
+              2,500 to Rs. 15,000.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span class="faq-question-text">What is the Free Product?</span>
+            <span class="faq-question-icon arrow-circle">
+              <svg width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0L8 8L16 0L0 0Z" fill="black" />
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <p>Choose one product from our curated selection at no additional cost. Options include a Sling Bag, Thermo
+              Steel Bottle, or Collapsible Basket.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span class="faq-question-text">Any hidden charges?</span>
+            <span class="faq-question-icon arrow-circle">
+              <svg width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0L8 8L16 0L0 0Z" fill="black" />
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <p>None. One-time payment. All 5 benefits unlocked immediately.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- #include file="inc_footer.asp" -->
+
+
+
+
+  <script src="script.js?v=2"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+
+
+const products = [
+    { id: 1, name: "Solar Tower Emergency Light", description: "Rechargeable 3500MAH Lead-acid Battery + 2W Solar Panel", price: 2999, image: "https://thekairoshome.com/wp-content/uploads/2024/10/SOLAR-TOWER-EMERGENCY-LIGHT-600x600.jpg" },
+    { id: 2, name: "Warmwave Electric Kettle 1.8 L", description: "Versatile for juice, sorbet, and smoothies.", price: 3400, image: "https://thekairoshome.com/wp-content/uploads/2024/11/1-14-600x600.jpg" },
+    { id: 3, name: "Smart Led Bluetooth Speaker", description: "360-degree Audio 15 watt frequency-40KHz", price: 2699, image: "https://thekairoshome.com/wp-content/uploads/2024/08/SMART-LED-BLUETOOTH-SPEAKER-600x600.jpg" },
+    { id: 4, name: "View Beat Bluetooth Earbuds", description: `Charging Time: 1 hour`, price: 4290, image: "https://thekairoshome.com/wp-content/uploads/2024/11/1-600x600.jpg" },
+    { id: 5, name: "Air Fryer 4.5 Ltr", description: "Grill, Bake, Fry, Roast, Reheat", price: 9990, image: "https://thekairoshome.com/wp-content/uploads/2024/09/air-fryer-4.5-liter-600x600.jpg" },
+    { id: 6, name: "Airflow Bladeless Towerfan″", description: "Wind Speeds: 8 Settings", price: 12299, image: "https://thekairoshome.com/wp-content/uploads/2024/08/AirFlow-Pro-20-Bladeless-Tower-Fan-600x600.jpg" },
+    { id: 7, name: "Clean Tech Pro", description: "Battery: 2600mAh x 3", price: 7999, image: "https://thekairoshome.com/wp-content/uploads/2024/08/3-1.jpg" },
+    { id: 8, name: "Multi Master Mini Food Processor", description: "Blend, chop, whisk, shred", price: 6590, image: "https://thekairoshome.com/wp-content/uploads/2024/11/1-27-600x600.jpg" },
+    { id: 9, name: "Hydro Mist Pro", description: "Tank: 3.5-litre", price: 6499, image: "https://thekairoshome.com/wp-content/uploads/2024/10/Hydro-Mist-Pro-600x600.jpg" },
+    { id: 10, name: "Ear Buddy Pro Bluettoth Headphone", description: "70 hours playback", price: 2499, image: "https://thekairoshome.com/wp-content/uploads/2024/11/1-1.jpg" },
+    { id: 11, name: "Infrared Induction Cooktop", description: "Power: 2200W", price: 6999, image: "https://thekairoshome.com/wp-content/uploads/2025/03/1_11zon-1-600x430.jpg" },
+    { id: 12, name: "Juice Mate Pro", description: "Power: 120W", price: 14999, image: "https://thekairoshome.com/wp-content/uploads/2024/10/Juice-Mate-Pro-Green.jpg" },
+    { id: 13, name: "Travel Mate Luggage(55)", description: "Anti-theft zipper", price: 5599, image: "https://thekairoshome.com/wp-content/uploads/2025/02/KANIKA-PRODUCTS-IMAGES-2-600x600.jpg" },
+    { id: 14, name: "Branded Shirt", description: "Premium Shirt", price: 3500, image: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ2EeWzZalnzYu4UxQb1R2Onf8Pjh4Bq0_HljILm5upNSAVowMDxmP9KaNk0qjgkvA7UmoQz_XHBPKTOSof-7g-wRX6eRo7KO8IHDJFeiCCAz7WHtEe9I-YtA" },
+    { id: 16, name: "Branded Jeans", description: "Premium Jeans", price: 3999, image: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQSZr7f7sFsKXVUsaFe1mpk-OMC9KA-Zc-YKQqNXHTBxPE68xdcCeMDA0f9Z9APLsVB6l-Z3zU4CMAvX8rybydieJOJCkIduSHHs6Yjw3xJnfmRy-1Qq6c9xj7ao2ktZhfpm679smI&usqp=CAc" },
+    { id: 17, name: "Toasty Delight Sandwich Maker", description: "700W Non-Stick", price: 3190, image: "https://thekairoshome.com/wp-content/uploads/2024/11/1-25-600x600.jpg" },
+    { id: 18, name: "Safari & Suitle Length", description: "Premium Cloth", price: 3500, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrz7ldOhoKYrtOkjdjRaMs4N5tUrThDbLwkA&s" },
+    { id: 19, name: "Double Bedsheet", description: "Premium Bedsheet", price: 2499, image: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT-w--2YknOn7ndOAYmIlFlTLEGu6W1gQPNmaYDo7CqVGtpQGdRDTPxAHXFxvzm2O_M6ILuQ38EpMcJhdq7oXcfULLgrMFW0RRc3jTAYIE&usqp=CAc" },
+    { id: 20, name: "Watch", description: "Foce Watch", price: 3000, image: "https://m.media-amazon.com/images/I/71L86GskCkL.jpg" },
+    { id: 21, name: "Lock Master ", description: "25L Digital Safe", price: 7490, image: "https://thekairoshome.com/wp-content/uploads/2024/11/Richa-1600x1600-3-600x600.png" },
+    { id: 22, name: "Multiutility Mixer and Grinder", description: "400W motor", price: 3499, image: "https://thekairoshome.com/wp-content/uploads/2024/08/Multiutility-Mixer-And-Grinder-600x600.jpg" },
+    { id: 23, name: "Premium Cutlery Set 24 pcs", description: "24 pcs", price: 3899, image: "https://thekairoshome.com/wp-content/uploads/2024/10/PREMIUM-CUTLERY-SET-24-PCS-1-600x600.jpg" },
+    { id: 24, name: "Oven Toaster Griller", description: "22L Capacity", price: 4190, image: "https://thekairoshome.com/wp-content/uploads/2024/11/22-600x600.png" },
+    { id: 25, name: "Fresh Guard Duo-Stainless Steel Container Set of 2", description: "Capacity: 600 ML", price: 2499, image: "https://thekairoshome.com/wp-content/uploads/2024/11/1-23-600x600.jpg" },
+    { id: 26, name: "Premium microbath towel and hand towel ", description: "Dual Capacity: Set of 2 – 1000ml & 1600ml", price: 2499, image: "https://thekairoshome.com/wp-content/uploads/2025/04/1-2-1-600x600.png" },
+    { id: 27, name: "Handled mini vaccum sealer with bags ", description: " Vacuum Sealer, 1 USB Cable, 2 Plastic Clips and 8 – vacuum seal storage bags", price: 1800, image: "https://thekairoshome.com/wp-content/uploads/2024/10/HANDHELD-MINI-VACUUM-SEALER-WITH-BAGS-600x600.jpg" },
+    { id: 28, name: "Two Premium Tshirts ", description: " Two Premium Tshirts", price: 3500, image: "https://www.careofcarl.com/bilder/artiklar/zoom/24548211r_1.jpg?m=1672668801" },
+    { id: 29, name: "Silicone Cooking Spatula  ", description: " No. of pieces: 12", price: 2999, image: "https://thekairoshome.com/wp-content/uploads/2024/08/Silicone-Cooking-Spatula-With-Wooden-Handle-Set-of-12-Pcs-600x600.jpg" },
+    { id: 30, name: "Foldable Kettle ", description: " Capacity: 600 ML", price: 2499, image: "https://thekairoshome.com/wp-content/uploads/2024/10/SILICONE-FOLDABLE-ELECTRIC-KETTLE-600x600.jpg" },
+    { id: 31, name: "Kitchen Queen Knife ", description: " Number of Knives: 5", price: 2499, image: "https://thekairoshome.com/wp-content/uploads/2024/08/Kitchen-Queen-Knife-Set-of-5-Pcs-With-Stand-600x600.jpg" },
+
+];
+

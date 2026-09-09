@@ -1,0 +1,503 @@
+.insurance {
+
+  padding: 40px 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.insurance .text {
+  width: 100%;
+  max-width: 600px;
+}
+
+.form-box {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+  font-weight: 600;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #444;
+}
+
+.required {
+  color: orangered;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
+  font-size: 14px;
+}
+
+.form-group input:disabled {
+  color: #555;
+  background: #eef1f5;
+  cursor: not-allowed;
+}
+
+.freeproducts {
+  padding: 40px 15px;
+
+}
+
+/* GRID */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* RESPONSIVE */
+@media (max-width: 576px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* CARD */
+.product-card {
+  background: #fff;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: 0.3s;
+  text-align: center;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+/* IMAGE */
+.product-img {
+  height: auto;
+  background: #f1f3f6;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 8px;
+}
+
+/* TEXT */
+.product-card h2 {
+  font-size: 16px;
+  margin-top: 15px;
+  color: #222;
+  font-weight: 600;
+}
+
+.product-card p {
+  font-size: 14px;
+  color: #666;
+  margin: 8px 0;
+}
+
+/* BUTTON */
+.claim-btn {
+  width: 100%;
+  padding: 10px;
+  background: #e76c45;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.claim-btn:hover {
+  background: #666;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.scratchcard {
+  font-family: Arial, sans-serif;
+}
+
+/* HERO BACKGROUND */
+.hero-section {
+  background: linear-gradient(135deg, #1e1b4b, #581c87, #000);
+  padding: 60px 20px;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  /* Fix ₹15,000 highlight-box alignment on mobile */
+  .highlight-box {
+    border-left: none;
+    border-bottom: 4px solid #facc15;
+    padding-left: 0;
+    padding-bottom: 10px;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .highlight-box h2 {
+    font-size: 42px !important;
+    text-align: center !important;
+  }
+
+  .highlight-box p {
+    text-align: center;
+  }
+
+  /* Fix card height so Claim Now button is not clipped */
+  .card {
+    height: auto;
+    min-height: 380px;
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .card img {
+    height: 50%;
+  }
+
+  .claim-btn {
+    margin-top: 8px;
+  }
+}
+
+/* LEFT */
+.main-title {
+  font-size: 48px;
+  font-weight: 800;
+  background: linear-gradient(to right, #facc15, #fb923c, #ef4444);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.main-title .icon {
+  color: #facc15;
+  margin-right: 8px;
+}
+
+.highlight-box {
+  margin-top: 20px;
+  border-left: 5px solid #facc15;
+  padding-left: 15px;
+}
+
+.highlight-box p {
+  font-size: 20px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.highlight-box h2 {
+  font-size: 50px;
+  color: #fde047;
+  font-weight: 900;
+  text-align: left !important;
+}
+
+/* DETAILS */
+.details {
+  margin-top: 20px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 8px 15px;
+  border: 1px solid #facc15;
+  border-radius: 30px;
+  color: #fde047;
+  background: rgba(30, 27, 75, 0.7);
+  margin-bottom: 10px;
+}
+
+.price {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.price span {
+  color: #fde047;
+}
+
+.note {
+  font-size: 14px;
+  color: #c7d2fe;
+}
+
+.info {
+  margin-top: 10px;
+  color: #fff;
+  font-style: italic;
+}
+
+/* RIGHT CARD */
+.right-card {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+    width: 300px;
+    height: min-content;
+    min-height: 400px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    transition: 0.3s;
+    margin-bottom: 50px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* CARD CONTENT */
+.status {
+  color: #f15343;
+  font-weight: bold;
+}
+
+.card img {
+  width: 100%;
+  height: 60%;
+  object-fit: contain;
+  padding: 10px;
+}
+
+.card h3 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.product-price {
+  font-size: 22px;
+  font-weight: 800;
+  color: #2563eb;
+}
+
+/* BUTTON */
+.claim-btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #f15343;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.claim-btn:hover {
+  background: #333;
+}
+
+/* SCRATCH LAYER */
+.scratch-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  cursor: pointer;
+  border-radius: 16px;
+  z-index: 10;
+}
+
+
+.hero-section{    
+    position: relative;
+    height: auto;    
+    margin-top: -12px;
+    overflow: hidden;
+}
+
+
+.wow-heading,h2 {    
+    text-align: center !important;
+}
+
+
+
+.package-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.package-grid .product-card {
+    width: calc(33.33% - 20px);
+}
+
+
+
+
+/* login */
+
+.login {
+  padding: 60px 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.login .text {
+  width: 100%;
+  max-width: 450px;
+}
+
+/* BOX */
+.form-box {
+  background: #fff;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+/* TITLE */
+.form-title {
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 700;
+  color: #333;
+}
+
+/* FORM */
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #444;
+}
+
+.required {
+  color: orangered;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.form-group input:focus {
+  border-color: orangered;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(37,99,235,0.2);
+}
+
+/* EXTRA */
+.form-extra {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.form-extra a {
+  color: orangered;
+  text-decoration: none;
+}
+
+.form-extra a:hover {
+  text-decoration: underline;
+}
+
+/* BUTTON */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background: orangered;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  background: orangered;
+}
+
+/* REGISTER */
+.register-text {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.register-text a {
+  color: orangered;
+  font-weight: 600;
+  text-decoration: none;
+}
