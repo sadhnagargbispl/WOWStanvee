@@ -55,10 +55,9 @@ public partial class AppfreeProduct : System.Web.UI.Page
             string encodedProductId = Convert.ToBase64String(
            System.Text.Encoding.UTF8.GetBytes(productId)
        );
-            string checkSql = "SELECT COUNT(1) FROM FreeProductClaim WHERE FormNo = @FormNo";
-            SqlParameter[] checkParams = { new SqlParameter("@FormNo", Session["formno"].ToString()) };
-            int exists = Convert.ToInt32(SqlHelper.ExecuteScalar(constr, CommandType.Text, checkSql, checkParams));
-            if (exists > 0)
+            // Free product current WOW package purchase ke against milta hai - pichhla unclaimed laps ho chuka hai
+            string formNo = Session["formno"].ToString();
+            if (WowBenefit.IsFreeProductClaimed(formNo, WowBenefit.GetCurrentCycleId(formNo)))
             {
                 string script = "window.onload=function(){alert('You have already claimed.');window.location='freeProduct.aspx';}";
                 ClientScript.RegisterStartupScript(this.GetType(), "AlreadyClaimed", script, true);
@@ -84,24 +83,16 @@ public partial class AppfreeProduct : System.Web.UI.Page
             Button btnClaim = (Button)e.Item.FindControl("btnClaim");
             Label lblClaimed = (Label)e.Item.FindControl("lblClaimed");
 
-            // 🔥 Sirf ek baar FormNo ke against claimed ProductId nikaalo
-            string sql = @"SELECT ProductId
-                       FROM FreeProductClaim
-                       WHERE FormNo = @FormNo";
-
-            SqlParameter[] param =
-            {
-            new SqlParameter("@FormNo", formNo)
-        };
-
-            object claimedProductId = SqlHelper.ExecuteScalar(
-                constr, CommandType.Text, sql, param
+            // 🔥 Current WOW package purchase ke against claimed ProductId nikaalo.
+            // Pichhle purchase ka claim ya unclaimed benefit ab count nahi hota.
+            string claimedProductId = WowBenefit.GetClaimedFreeProductId(
+                formNo, WowBenefit.GetCurrentCycleId(formNo)
             );
 
-            // ❌ Agar koi bhi product claim ho chuka hai
+            // ❌ Agar is purchase ke against koi product claim ho chuka hai
             if (claimedProductId != null)
             {
-                if (claimedProductId.ToString() == currentProductId)
+                if (claimedProductId == currentProductId)
                 {
                     // ✅ Ye wahi product hai jo claim hua
                     btnClaim.Visible = false;

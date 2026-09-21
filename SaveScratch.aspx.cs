@@ -31,14 +31,17 @@ public partial class SaveScratch : System.Web.UI.Page
     {
         string conStr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
 
+        // Scratch card current WOW package purchase ke against hota hai - pichhla cycle laps ho chuka hota hai
+        int cycleId = WowBenefit.GetCurrentCycleId(FormNo);
+
         using (SqlConnection con = new SqlConnection(conStr))
         {
             string sql = @"
-    IF NOT EXISTS (SELECT 1 FROM ScratchHistory WHERE FormNo = @FormNo)
+    IF NOT EXISTS (SELECT 1 FROM ScratchHistory WHERE FormNo = @FormNo AND ISNULL(CycleId, 0) = @CycleId)
     BEGIN
         INSERT INTO ScratchHistory
-        (ProductId, ProductName, ProductPrice, ProductImage, FormNo)
-        VALUES (@pid, @name, @price, @image, @FormNo)
+        (ProductId, ProductName, ProductPrice, ProductImage, FormNo, CycleId)
+        VALUES (@pid, @name, @price, @image, @FormNo, NULLIF(@CycleId, 0))
     END";
 
             SqlCommand cmd = new SqlCommand(sql, con);
@@ -47,6 +50,7 @@ public partial class SaveScratch : System.Web.UI.Page
             cmd.Parameters.AddWithValue("@price", price);
             cmd.Parameters.AddWithValue("@image", image);
             cmd.Parameters.AddWithValue("@FormNo", FormNo);
+            cmd.Parameters.AddWithValue("@CycleId", cycleId);
             con.Open();
             try
             {

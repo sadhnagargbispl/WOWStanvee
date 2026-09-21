@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -70,6 +71,30 @@ public partial class claim : System.Web.UI.Page
     }
     protected void btnPay_Click(object sender, EventArgs e)
     {
+        string formNo = Session["formno"].ToString();
+
+        // Scratch card claim current WOW package purchase ke against hi hota hai
+        int cycleId = WowBenefit.GetCurrentCycleId(formNo);
+
+        string checkSql = @"SELECT COUNT(1)
+                            FROM   ScratchClaimOrder
+                            WHERE  FormNo = @FormNo
+                                   AND CycleId = @CycleId
+                                   AND UPPER(Status) = 'SUCCESS'";
+        SqlParameter[] checkParams =
+        {
+            new SqlParameter("@FormNo", formNo),
+            new SqlParameter("@CycleId", cycleId)
+        };
+
+        int alreadyClaimed = Convert.ToInt32(SqlHelper.ExecuteScalar(constr, CommandType.Text, checkSql, checkParams));
+        if (alreadyClaimed > 0)
+        {
+            string claimedScript = "window.onload=function(){alert('You have already claimed the scratch card reward for your current WOW package.');window.location='ScratchCard.aspx';}";
+            ClientScript.RegisterStartupScript(this.GetType(), "AlreadyClaimed", claimedScript, true);
+            return;
+        }
+
         string Strqueryquer = "Insert into Trnjoining(Transid)values(" + HdnCheckTrnns.Value + ")";
         int isOk1 = Convert.ToInt32(SqlHelper.ExecuteNonQuery(constr, CommandType.Text, Strqueryquer));
 
@@ -87,6 +112,15 @@ public partial class claim : System.Web.UI.Page
             int i = SqlHelper.ExecuteNonQuery(constr, CommandType.Text, sql);
             if (i > 0)
             {
+                // Order ko current purchase cycle se jodo - payment success par isi ko SUCCESS mark karenge
+                string orderSql = @"INSERT INTO ScratchClaimOrder (OrderId, FormNo, CycleId, ProductId, Status)
+                                    VALUES (@OrderId, @FormNo, @CycleId, @ProductId, 'INITIATED')";
+                SqlHelper.ExecuteNonQuery(constr, CommandType.Text, orderSql,
+                    new SqlParameter("@OrderId", OrderId),
+                    new SqlParameter("@FormNo", formNo),
+                    new SqlParameter("@CycleId", cycleId),
+                    new SqlParameter("@ProductId", (object)productid ?? DBNull.Value));
+
                 GenerateQrCode(OrderId, "699");
             }
         }

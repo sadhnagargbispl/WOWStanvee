@@ -12,13 +12,18 @@ public partial class GetScratchByFormNo : System.Web.UI.Page
 
         string conStr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
 
+        // Sirf current WOW package purchase ka scratch dikhta hai - purane cycle ka laps ho chuka hai
+        int cycleId = WowBenefit.GetCurrentCycleId(formNo);
+
         using (SqlConnection con = new SqlConnection(conStr))
         {
             SqlCommand cmd = new SqlCommand(
-                "SELECT TOP 1 ProductId,ProductName,ProductPrice,ProductImage FROM ScratchHistory WHERE FormNo=@FormNo",
+                "SELECT TOP 1 ProductId,ProductName,ProductPrice,ProductImage FROM ScratchHistory " +
+                "WHERE FormNo=@FormNo AND ISNULL(CycleId, 0)=@CycleId",
                 con);
 
             cmd.Parameters.AddWithValue("@FormNo", formNo);
+            cmd.Parameters.AddWithValue("@CycleId", cycleId);
             con.Open();
 
             SqlDataReader dr = cmd.ExecuteReader();

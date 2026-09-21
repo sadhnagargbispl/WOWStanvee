@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -177,6 +178,16 @@ public partial class PaymentGateWayNew : System.Web.UI.Page
                          "', Responsedate=GETDATE() WHERE TransactionId='" + orderid + "'";
 
             SqlHelper.ExecuteNonQuery(constr, CommandType.Text, str);
+
+            // Scratch card claim order ka status update karo - claim usi purchase cycle ke against
+            // mark hota hai jis cycle me order banaya gaya tha
+            string sqlOrder = @"UPDATE ScratchClaimOrder
+                                SET    Status = @Status, UpdatedOn = GETDATE()
+                                WHERE  OrderId = @OrderId";
+
+            SqlHelper.ExecuteNonQuery(constr, CommandType.Text, sqlOrder,
+                new SqlParameter("@Status", status.ToUpper()),
+                new SqlParameter("@OrderId", orderid));
 
             if (status.ToUpper() == "SUCCESS")
             {

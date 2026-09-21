@@ -11,11 +11,20 @@ public partial class CheckClaimStatus : System.Web.UI.Page
 
         string conStr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
 
+        // Claim current WOW package purchase ke against check hota hai. Pichhle purchase ka claim
+        // naye purchase ko block nahi karta, aur pichhla unclaimed benefit laps ho jaata hai.
+        int cycleId = WowBenefit.GetCurrentCycleId(formNo);
+
         using (SqlConnection con = new SqlConnection(conStr))
         {
-            string sql = "SELECT COUNT(1) FROM CheckoutBilling WHERE FormNo=@FormNo";
+            string sql = @"SELECT COUNT(1)
+                           FROM   ScratchClaimOrder
+                           WHERE  FormNo = @FormNo
+                                  AND CycleId = @CycleId
+                                  AND UPPER(Status) = 'SUCCESS'";
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.Parameters.AddWithValue("@FormNo", formNo);
+            cmd.Parameters.AddWithValue("@CycleId", cycleId);
 
             con.Open();
             int count = Convert.ToInt32(cmd.ExecuteScalar());

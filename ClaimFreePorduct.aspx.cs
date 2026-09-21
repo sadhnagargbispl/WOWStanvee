@@ -90,10 +90,13 @@ public partial class ClaimFreePorduct : System.Web.UI.Page
     {
         string ipAddress = GetClientIP();
         string orderId = DateTime.Now.ToString("yyyyMMddHHmmssfff");
-        string checkSql = "SELECT COUNT(1) FROM FreeProductClaim WHERE FormNo = @FormNo";
-        SqlParameter[] checkParams = {new SqlParameter("@FormNo", Session["formno"].ToString())};
-        int exists = Convert.ToInt32(SqlHelper.ExecuteScalar(constr, CommandType.Text, checkSql, checkParams));
-        if (exists > 0)
+
+        // Free product current WOW package purchase ke against hi claim hota hai.
+        // Pichhle purchase ka unclaimed free product laps ho chuka hota hai.
+        string formNo = Session["formno"].ToString();
+        int cycleId = WowBenefit.GetCurrentCycleId(formNo);
+
+        if (WowBenefit.IsFreeProductClaimed(formNo, cycleId))
         {
             string script = "window.onload=function(){alert('You have already claimed this free product.');window.location='freeProduct.aspx';}";
             ClientScript.RegisterStartupScript(this.GetType(), "AlreadyClaimed", script, true);
@@ -107,10 +110,21 @@ public partial class ClaimFreePorduct : System.Web.UI.Page
             if (isOk1 > 0)
             {
                 string OrderId = DateTime.Now.ToString("yyyyMMddHHmmssfff");
-                string sql = "insert into FreeProductClaim(ProductId,FormNo,FullName,Email,Phone,Address,City,ZipCode,IPAddress)" +
-                             "VALUES('" + productid + "','" + Session["formno"] + "','" + txtName.Value + "','" + txtEmail.Value + "','" + txtPhone.Value + "','" + txtAddress.Value + "','" + txtCity.Value + "','" + Convert.ToInt32(txtZip.Value) + "','" + ipAddress + "')";
+                string sql = @"INSERT INTO FreeProductClaim
+                               (ProductId, FormNo, FullName, Email, Phone, Address, City, ZipCode, IPAddress, CycleId)
+                               VALUES (@ProductId, @FormNo, @FullName, @Email, @Phone, @Address, @City, @ZipCode, @IPAddress, NULLIF(@CycleId, 0))";
 
-                int i = SqlHelper.ExecuteNonQuery(constr, CommandType.Text, sql);
+                int i = SqlHelper.ExecuteNonQuery(constr, CommandType.Text, sql,
+                    new SqlParameter("@ProductId", productid),
+                    new SqlParameter("@FormNo", formNo),
+                    new SqlParameter("@FullName", txtName.Value),
+                    new SqlParameter("@Email", txtEmail.Value),
+                    new SqlParameter("@Phone", txtPhone.Value),
+                    new SqlParameter("@Address", txtAddress.Value),
+                    new SqlParameter("@City", txtCity.Value),
+                    new SqlParameter("@ZipCode", Convert.ToInt32(txtZip.Value)),
+                    new SqlParameter("@IPAddress", ipAddress),
+                    new SqlParameter("@CycleId", cycleId));
                 if (i > 0)
                 {
                     string script = "window.onload=function(){alert('Thank you! Your free product claim has been completed successfully.!');window.location='freeProduct.aspx';}";
