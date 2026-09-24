@@ -1,6 +1,6 @@
 /*
 ==========================================================================================
-  Testing helper - WOW Movie package (KitId 18) ek se zyada baar kisne purchase kiya hai.
+  Testing helper - WOW Movie package (KitId 18 / 19) ek se zyada baar kisne purchase kiya hai.
 
   Inhi members par naya rule verify karna hai:
     - latest purchase ka Free Product / Scratch Card milna chahiye
@@ -11,7 +11,7 @@
 */
 
 /*----------------------------------------------------------------------------------------
-  Q1. Jinhone KitId 18 ek se zyada baar liya hai (joining + repurchase dono count)
+  Q1. Jinhone KitId 18 / 19 ek se zyada baar liya hai (joining + repurchase dono count)
 ----------------------------------------------------------------------------------------*/
 SELECT  p.FormNo,
         mm.IDNo,
@@ -24,13 +24,14 @@ SELECT  p.FormNo,
 FROM (
         SELECT r.FormNo, PurchaseDate = r.BillDate, Src = 'R'
         FROM   dbo.repurchincome r
-        WHERE  r.KitId = 18
+        WHERE  r.KitId IN (18, 19)
 
         UNION ALL
 
         SELECT mm2.FormNo, ISNULL(mm2.Upgradedate, mm2.Doj), 'J'
         FROM   dbo.M_MemberMaster mm2
-        WHERE  ',' + REPLACE(CONVERT(varchar(200), ISNULL(mm2.KitID, '')), ' ', '') + ',' LIKE '%,18,%'
+        WHERE  (   ',' + REPLACE(CONVERT(varchar(200), ISNULL(mm2.KitID, '')), ' ', '') + ',' LIKE '%,18,%'
+                OR ',' + REPLACE(CONVERT(varchar(200), ISNULL(mm2.KitID, '')), ' ', '') + ',' LIKE '%,19,%')
      ) p
      LEFT JOIN dbo.M_MemberMaster mm ON mm.FormNo = p.FormNo
 WHERE  p.PurchaseDate IS NOT NULL
@@ -51,14 +52,15 @@ SELECT  Src          = CASE WHEN p.Src = 'J' THEN 'Joining' ELSE 'Repurchase' EN
 FROM (
         SELECT r.FormNo, PurchaseDate = r.BillDate, Src = 'R'
         FROM   dbo.repurchincome r
-        WHERE  r.KitId = 18 AND r.FormNo = @FormNo
+        WHERE  r.KitId IN (18, 19) AND r.FormNo = @FormNo
 
         UNION ALL
 
         SELECT mm.FormNo, ISNULL(mm.Upgradedate, mm.Doj), 'J'
         FROM   dbo.M_MemberMaster mm
         WHERE  mm.FormNo = @FormNo
-               AND ',' + REPLACE(CONVERT(varchar(200), ISNULL(mm.KitID, '')), ' ', '') + ',' LIKE '%,18,%'
+               AND (   ',' + REPLACE(CONVERT(varchar(200), ISNULL(mm.KitID, '')), ' ', '') + ',' LIKE '%,18,%'
+                    OR ',' + REPLACE(CONVERT(varchar(200), ISNULL(mm.KitID, '')), ' ', '') + ',' LIKE '%,19,%')
      ) p
 WHERE  p.PurchaseDate IS NOT NULL
 ORDER BY p.PurchaseDate DESC;
@@ -81,13 +83,14 @@ FROM (
         FROM (
                 SELECT r.FormNo, PurchaseDate = r.BillDate, Src = 'R'
                 FROM   dbo.repurchincome r
-                WHERE  r.KitId = 18
+                WHERE  r.KitId IN (18, 19)
 
                 UNION ALL
 
                 SELECT mm.FormNo, ISNULL(mm.Upgradedate, mm.Doj), 'J'
                 FROM   dbo.M_MemberMaster mm
-                WHERE  ',' + REPLACE(CONVERT(varchar(200), ISNULL(mm.KitID, '')), ' ', '') + ',' LIKE '%,18,%'
+                WHERE  (   ',' + REPLACE(CONVERT(varchar(200), ISNULL(mm.KitID, '')), ' ', '') + ',' LIKE '%,18,%'
+                        OR ',' + REPLACE(CONVERT(varchar(200), ISNULL(mm.KitID, '')), ' ', '') + ',' LIKE '%,19,%')
              ) p
         WHERE  p.PurchaseDate IS NOT NULL
         GROUP BY p.FormNo

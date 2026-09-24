@@ -8,8 +8,8 @@ using System.Web;
 /// WOW package ke "purchase cycle" ko resolve karta hai.
 ///
 /// Rule:
-///  - Member jab bhi WOW Movie package (KitId 18) purchase karta hai, ek naya cycle ban jaata
-///    hai. Baaki kits (Royal / Full Tank Card / Free Registration) par cycle nahi banti.
+///  - Member jab bhi WOW Movie package (KitId 18 / 19) purchase karta hai, ek naya cycle ban
+///    jaata hai. Baaki kits (Royal / Full Tank Card / Free Registration) par cycle nahi banti.
 ///  - Free Product aur Scratch Card ka entitlement HAMESHA current (latest) cycle ka hi hota hai.
 ///  - Pichhle cycle me agar claim nahi kiya to wo lapse ho jaata hai - sirf current cycle claim ho sakta hai.
 ///
@@ -20,15 +20,17 @@ public static class WowBenefit
 {
     /// <summary>
     /// Kit ids jinke purchase par Free Product / Scratch Card ka benefit milta hai.
-    /// Ye benefit SIRF WOW Movie package (KitId 18 - ReferLink.aspx ka "WOW Movie @999"
-    /// refer link) ke liye hai. Baaki kits par naya cycle nahi banta:
-    ///   19 = doosra kit (Login.aspx.cs sirf portal access ke liye ise allow karta hai)
+    /// Ye benefit SIRF WOW Movie package ke liye hai, jiske do kits hain:
+    ///   18 = WOW Movie @999 (ReferLink.aspx ka refer link)
+    ///   19 = WOW Movie ka doosra kit
+    /// Login.aspx.cs ka portal access check bhi inhi 18 / 19 ko allow karta hai.
+    /// Baaki kits par naya cycle nahi banta:
     ///   13 = FULL TANK CARD @4999, 4 = ROYAL PACKAGE @9999, 12 = FREE REGISTRATION
-    /// Kit list badle to yahan aur migration script dono me update karni hai.
+    /// Kit list badle to yahan aur sql/ ki dono scripts me update karni hai.
     /// </summary>
-    public static readonly int[] WowKitIds = { 18 };
+    public static readonly int[] WowKitIds = { 18, 19 };
 
-    /// <summary>WowKitIds ka "18" form - SQL IN (...) ke liye.</summary>
+    /// <summary>WowKitIds ka "18, 19" form - SQL IN (...) ke liye.</summary>
     private static string KitIdList
     {
         get { return string.Join(", ", Array.ConvertAll(WowKitIds, k => k.ToString())); }

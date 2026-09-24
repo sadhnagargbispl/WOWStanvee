@@ -3,9 +3,11 @@
   WOW Package - Free Product & Scratch Card ko "per purchase" banane ke liye migration.
 
   Rule:
-    - Ye benefit SIRF WOW Movie package (KitId 18 - ReferLink.aspx ka "WOW Movie @999" refer
-      link) ke liye hai. Jab bhi member ye package purchase karta hai, ek naya purchase cycle
-      ban jaata hai. Baaki kits par cycle nahi banti - 19, 13 = FULL TANK CARD @4999,
+    - Ye benefit SIRF WOW Movie package ke liye hai, jiske do kits hain:
+          18 = WOW Movie @999 (ReferLink.aspx ka refer link)
+          19 = WOW Movie ka doosra kit
+      Jab bhi member in me se koi kit purchase karta hai, ek naya purchase cycle ban jaata hai.
+      Baaki kits par cycle nahi banti - 13 = FULL TANK CARD @4999,
       4 = ROYAL PACKAGE @9999, 12 = FREE REGISTRATION.
       Ye list App_Code/WowBenefit.cs ke WowKitIds ke saath same rehni chahiye.
     - Free Product aur Scratch Card current cycle ke against hi milte hain.
@@ -157,7 +159,7 @@ FROM (
                     SELECT 'R' AS Src, r.BillDate AS PurchaseDate
                     FROM   dbo.repurchincome r
                     WHERE  r.FormNo = m.FormNo
-                           AND r.KitId = 18
+                           AND r.KitId IN (18, 19)
 
                     UNION ALL
 
@@ -165,7 +167,8 @@ FROM (
                     SELECT 'J', ISNULL(mm.Upgradedate, mm.Doj)
                     FROM   dbo.M_MemberMaster mm
                     WHERE  mm.FormNo = m.FormNo
-                           AND ',' + REPLACE(CONVERT(varchar(200), ISNULL(mm.KitID, '')), ' ', '') + ',' LIKE '%,18,%'
+                           AND (   ',' + REPLACE(CONVERT(varchar(200), ISNULL(mm.KitID, '')), ' ', '') + ',' LIKE '%,18,%'
+                                OR ',' + REPLACE(CONVERT(varchar(200), ISNULL(mm.KitID, '')), ' ', '') + ',' LIKE '%,19,%')
                ) x
         WHERE  x.PurchaseDate IS NOT NULL
      ) p
