@@ -94,9 +94,9 @@ public partial class ClaimFreePorduct : System.Web.UI.Page
         // Free product current WOW package purchase ke against hi claim hota hai.
         // Pichhle purchase ka unclaimed free product laps ho chuka hota hai.
         string formNo = Session["formno"].ToString();
-        int cycleId = WowBenefit.GetCurrentCycleId(formNo);
+        WowCycle cycle = WowBenefit.GetCurrentCycle(formNo);
 
-        if (WowBenefit.IsFreeProductClaimed(formNo, cycleId))
+        if (WowBenefit.IsFreeProductClaimed(formNo, cycle.CycleId))
         {
             string script = "window.onload=function(){alert('You have already claimed this free product.');window.location='freeProduct.aspx';}";
             ClientScript.RegisterStartupScript(this.GetType(), "AlreadyClaimed", script, true);
@@ -111,8 +111,8 @@ public partial class ClaimFreePorduct : System.Web.UI.Page
             {
                 string OrderId = DateTime.Now.ToString("yyyyMMddHHmmssfff");
                 string sql = @"INSERT INTO FreeProductClaim
-                               (ProductId, FormNo, FullName, Email, Phone, Address, City, ZipCode, IPAddress, WowCycleId)
-                               VALUES (@ProductId, @FormNo, @FullName, @Email, @Phone, @Address, @City, @ZipCode, @IPAddress, NULLIF(@WowCycleId, 0))";
+                               (ProductId, FormNo, FullName, Email, Phone, Address, City, ZipCode, IPAddress, WowCycleId, WowBillNo)
+                               VALUES (@ProductId, @FormNo, @FullName, @Email, @Phone, @Address, @City, @ZipCode, @IPAddress, NULLIF(@WowCycleId, 0), @WowBillNo)";
 
                 int i = SqlHelper.ExecuteNonQuery(constr, CommandType.Text, sql,
                     new SqlParameter("@ProductId", productid),
@@ -124,7 +124,8 @@ public partial class ClaimFreePorduct : System.Web.UI.Page
                     new SqlParameter("@City", txtCity.Value),
                     new SqlParameter("@ZipCode", Convert.ToInt32(txtZip.Value)),
                     new SqlParameter("@IPAddress", ipAddress),
-                    new SqlParameter("@WowCycleId", cycleId));
+                    new SqlParameter("@WowCycleId", cycle.CycleId),
+                    new SqlParameter("@WowBillNo", (object)cycle.BillNo ?? DBNull.Value));
                 if (i > 0)
                 {
                     string script = "window.onload=function(){alert('Thank you! Your free product claim has been completed successfully.!');window.location='freeProduct.aspx';}";

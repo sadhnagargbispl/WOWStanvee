@@ -32,7 +32,7 @@ public partial class SaveScratch : System.Web.UI.Page
         string conStr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
 
         // Scratch card current WOW package purchase ke against hota hai - pichhla cycle laps ho chuka hota hai
-        int cycleId = WowBenefit.GetCurrentCycleId(FormNo);
+        WowCycle cycle = WowBenefit.GetCurrentCycle(FormNo);
 
         using (SqlConnection con = new SqlConnection(conStr))
         {
@@ -40,8 +40,8 @@ public partial class SaveScratch : System.Web.UI.Page
     IF NOT EXISTS (SELECT 1 FROM ScratchHistory WHERE FormNo = @FormNo AND ISNULL(WowCycleId, 0) = @WowCycleId)
     BEGIN
         INSERT INTO ScratchHistory
-        (ProductId, ProductName, ProductPrice, ProductImage, FormNo, WowCycleId)
-        VALUES (@pid, @name, @price, @image, @FormNo, NULLIF(@WowCycleId, 0))
+        (ProductId, ProductName, ProductPrice, ProductImage, FormNo, WowCycleId, WowBillNo)
+        VALUES (@pid, @name, @price, @image, @FormNo, NULLIF(@WowCycleId, 0), @WowBillNo)
     END";
 
             SqlCommand cmd = new SqlCommand(sql, con);
@@ -50,7 +50,8 @@ public partial class SaveScratch : System.Web.UI.Page
             cmd.Parameters.AddWithValue("@price", price);
             cmd.Parameters.AddWithValue("@image", image);
             cmd.Parameters.AddWithValue("@FormNo", FormNo);
-            cmd.Parameters.AddWithValue("@WowCycleId", cycleId);
+            cmd.Parameters.AddWithValue("@WowCycleId", cycle.CycleId);
+            cmd.Parameters.AddWithValue("@WowBillNo", (object)cycle.BillNo ?? DBNull.Value);
             con.Open();
             try
             {

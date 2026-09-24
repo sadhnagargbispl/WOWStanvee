@@ -79,6 +79,30 @@ WHERE   cur.rn = 1
 
 
 /*----------------------------------------------------------------------------------------
+  A7. Duplicate benefit rows - ek hi cycle me ek se zyada scratch / free product.
+      Ye purane data ki anomaly hai (naya code aisa hone nahi deta). Khali aaye to
+      migration dobara chalane par unique index ban jayega.
+----------------------------------------------------------------------------------------*/
+SELECT  Audit = 'A7_DuplicateScratch',
+        s.FormNo, s.WowCycleId, Rows = COUNT(*),
+        Ids = MIN(s.Id), MaxId = MAX(s.Id)
+FROM    dbo.ScratchHistory s
+WHERE   s.WowCycleId IS NOT NULL
+GROUP BY s.FormNo, s.WowCycleId
+HAVING  COUNT(*) > 1
+ORDER BY COUNT(*) DESC;
+
+SELECT  Audit = 'A7_DuplicateFreeProduct',
+        f.FormNo, f.WowCycleId, Rows = COUNT(*),
+        Ids = MIN(f.ClaimId), MaxId = MAX(f.ClaimId)
+FROM    dbo.FreeProductClaim f
+WHERE   f.WowCycleId IS NOT NULL
+GROUP BY f.FormNo, f.WowCycleId
+HAVING  COUNT(*) > 1
+ORDER BY COUNT(*) DESC;
+
+
+/*----------------------------------------------------------------------------------------
   A6. Test member ka poora picture
 ----------------------------------------------------------------------------------------*/
 SELECT Audit = 'A6_Bills',        r.RId, r.BillNo, r.BillDate, r.BillType, r.KitId

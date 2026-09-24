@@ -20,6 +20,19 @@ using System.Web;
 /// NOTE: column ka naam WowCycleId hai, CycleId nahi - ScratchHistory aur FreeProductClaim me
 /// CycleId naam ka column pehle se maujood hai jiska matlab alag hai (MLM session cycle).
 /// </summary>
+/// <summary>Ek WOW package purchase - iske against benefit milta hai.</summary>
+public class WowCycle
+{
+    /// <summary>WowPurchaseCycle.CycleId. Resolve na ho paaye to 0.</summary>
+    public int CycleId { get; set; }
+
+    /// <summary>repurchincome.BillNo - report me yahi order no dikhta hai. LEGACY par null.</summary>
+    public string BillNo { get; set; }
+
+    /// <summary>repurchincome.BillDate.</summary>
+    public DateTime? PurchaseDate { get; set; }
+}
+
 public static class WowBenefit
 {
     /// <summary>
@@ -55,62 +68,76 @@ public static class WowBenefit
     /// Koi purchase trace na mile to "LEGACY" cycle par gir jaata hai (purana FormNo-wise
     /// behaviour). Ek hi request me baar baar call hone par cached value milti hai.
     /// </summary>
-    public static int GetCurrentCycleId(string formNo)
+    public static WowCycle GetCurrentCycle(string formNo)
     {
-        if (string.IsNullOrEmpty(formNo)) return 0;
+        WowCycle cycle = new WowCycle();
+        if (string.IsNullOrEmpty(formNo)) return cycle;
 
         string cacheKey = "WowCycle_" + formNo;
         HttpContext ctx = HttpContext.Current;
         if (ctx != null && ctx.Items[cacheKey] != null)
         {
-            return Convert.ToInt32(ctx.Items[cacheKey]);
+            return (WowCycle)ctx.Items[cacheKey];
         }
 
-        int cycleId = 0;
         try
         {
             string sql = @"
-DECLARE @Ref varchar(50), @Dt datetime;
+DECLARE @Ref varchar(50), @RId int, @BillNo varchar(50), @Dt datetime;
 
 SELECT TOP 1
-       @Ref = 'R:' + CONVERT(varchar(20), r.RId),
-       @Dt  = r.BillDate
+       @RId    = r.RId,
+       @BillNo = CONVERT(varchar(50), r.BillNo),
+       @Dt     = r.BillDate
 FROM   repurchincome r
 WHERE  r.FormNo = @FormNo
        AND r.KitId IN (" + KitIdList + @")
 ORDER BY r.BillDate DESC, r.RId DESC;
 
-IF @Ref IS NULL SET @Ref = 'LEGACY';
+SET @Ref = CASE WHEN @RId IS NULL THEN 'LEGACY' ELSE 'R:' + CONVERT(varchar(20), @RId) END;
 
 -- Do parallel request ek saath aayen to duplicate key ignore karo, cycle to ban hi chuka hoga
 BEGIN TRY
     IF NOT EXISTS (SELECT 1 FROM WowPurchaseCycle WHERE FormNo = @FormNo AND PurchaseRef = @Ref)
     BEGIN
-        INSERT INTO WowPurchaseCycle (FormNo, PurchaseRef, PurchaseDate)
-        VALUES (@FormNo, @Ref, @Dt);
+        INSERT INTO WowPurchaseCycle (FormNo, PurchaseRef, BillRId, BillNo, PurchaseDate)
+        VALUES (@FormNo, @Ref, @RId, @BillNo, @Dt);
     END
 END TRY
 BEGIN CATCH
 END CATCH
 
-SELECT TOP 1 CycleId FROM WowPurchaseCycle WHERE FormNo = @FormNo AND PurchaseRef = @Ref;";
+SELECT TOP 1 CycleId, BillNo, PurchaseDate
+FROM   WowPurchaseCycle
+WHERE  FormNo = @FormNo AND PurchaseRef = @Ref;";
 
-            object result = SqlHelper.ExecuteScalar(
+            DataSet ds = SqlHelper.ExecuteDataset(
                 ConnectionString, CommandType.Text, sql,
                 new SqlParameter("@FormNo", formNo));
 
-            if (result != null && result != DBNull.Value)
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
-                cycleId = Convert.ToInt32(result);
+                DataRow row = ds.Tables[0].Rows[0];
+                cycle.CycleId = Convert.ToInt32(row["CycleId"]);
+                cycle.BillNo = row["BillNo"] == DBNull.Value ? null : row["BillNo"].ToString();
+                cycle.PurchaseDate = row["PurchaseDate"] == DBNull.Value
+                    ? (DateTime?)null
+                    : Convert.ToDateTime(row["PurchaseDate"]);
             }
         }
         catch (Exception)
         {
-            cycleId = 0;
+            cycle = new WowCycle();
         }
 
-        if (ctx != null) ctx.Items[cacheKey] = cycleId;
-        return cycleId;
+        if (ctx != null) ctx.Items[cacheKey] = cycle;
+        return cycle;
+    }
+
+    /// <summary>Sirf CycleId chahiye to ye - andar GetCurrentCycle hi call hota hai.</summary>
+    public static int GetCurrentCycleId(string formNo)
+    {
+        return GetCurrentCycle(formNo).CycleId;
     }
 
     /// <summary>Session se FormNo uthakar current CycleId deta hai.</summary>
