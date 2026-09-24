@@ -3,13 +3,10 @@
   WOW Package - Free Product & Scratch Card ko "per purchase" banane ke liye migration.
 
   Rule:
-    - Jab bhi member koi WOW package purchase karta hai, ek naya purchase cycle ban jaata hai.
-      Package kit ids (ReferLink.aspx ke refer links se):
-          4  = ROYAL PACKAGE @9999
-          13 = FULL TANK CARD @4999
-          18 = WOW Movie @999
-          19 = WOW Movie ka doosra kit (Login.aspx.cs ka access check isse allow karta hai)
-      KitId 12 (FREE REGISTRATION) package nahi hai - usse cycle nahi banti.
+    - Ye benefit SIRF WOW Movie package (KitId 18 - ReferLink.aspx ka "WOW Movie @999" refer
+      link) ke liye hai. Jab bhi member ye package purchase karta hai, ek naya purchase cycle
+      ban jaata hai. Baaki kits par cycle nahi banti - 19, 13 = FULL TANK CARD @4999,
+      4 = ROYAL PACKAGE @9999, 12 = FREE REGISTRATION.
       Ye list App_Code/WowBenefit.cs ke WowKitIds ke saath same rehni chahiye.
     - Free Product aur Scratch Card current cycle ke against hi milte hain.
     - Pichhle cycle ka claim agar nahi kiya to wo LAPSE ho jaata hai - naya purchase karne ke
@@ -160,7 +157,7 @@ FROM (
                     SELECT 'R' AS Src, r.BillDate AS PurchaseDate
                     FROM   dbo.repurchincome r
                     WHERE  r.FormNo = m.FormNo
-                           AND r.KitId IN (4, 13, 18, 19)
+                           AND r.KitId = 18
 
                     UNION ALL
 
@@ -168,10 +165,7 @@ FROM (
                     SELECT 'J', ISNULL(mm.Upgradedate, mm.Doj)
                     FROM   dbo.M_MemberMaster mm
                     WHERE  mm.FormNo = m.FormNo
-                           AND (   ',' + REPLACE(CONVERT(varchar(200), ISNULL(mm.KitID, '')), ' ', '') + ',' LIKE '%,4,%'
-                                OR ',' + REPLACE(CONVERT(varchar(200), ISNULL(mm.KitID, '')), ' ', '') + ',' LIKE '%,13,%'
-                                OR ',' + REPLACE(CONVERT(varchar(200), ISNULL(mm.KitID, '')), ' ', '') + ',' LIKE '%,18,%'
-                                OR ',' + REPLACE(CONVERT(varchar(200), ISNULL(mm.KitID, '')), ' ', '') + ',' LIKE '%,19,%')
+                           AND ',' + REPLACE(CONVERT(varchar(200), ISNULL(mm.KitID, '')), ' ', '') + ',' LIKE '%,18,%'
                ) x
         WHERE  x.PurchaseDate IS NOT NULL
      ) p

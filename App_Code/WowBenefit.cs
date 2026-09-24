@@ -8,9 +8,8 @@ using System.Web;
 /// WOW package ke "purchase cycle" ko resolve karta hai.
 ///
 /// Rule:
-///  - Member jab bhi koi WOW package purchase karta hai, ek naya cycle ban jaata hai.
-///    (Package kit ids ReferLink.aspx ke refer links se: 4 / 13 / 18 / 19 - free registration
-///     wala KitId 12 package nahi hai, isliye usse cycle nahi banti.)
+///  - Member jab bhi WOW Movie package (KitId 18) purchase karta hai, ek naya cycle ban jaata
+///    hai. Baaki kits (Royal / Full Tank Card / Free Registration) par cycle nahi banti.
 ///  - Free Product aur Scratch Card ka entitlement HAMESHA current (latest) cycle ka hi hota hai.
 ///  - Pichhle cycle me agar claim nahi kiya to wo lapse ho jaata hai - sirf current cycle claim ho sakta hai.
 ///
@@ -20,17 +19,16 @@ using System.Web;
 public static class WowBenefit
 {
     /// <summary>
-    /// Kit ids jo WOW package maane jaate hain - ReferLink.aspx ke refer links ke hisaab se:
-    ///   4  = ROYAL PACKAGE @9999
-    ///   13 = FULL TANK CARD @4999
-    ///   18 = WOW Movie @999
-    ///   19 = WOW Movie ka doosra kit (Login.aspx.cs ka access check isse allow karta hai)
-    /// KitId 12 (FREE REGISTRATION) jaan bujh kar bahar hai - wo package purchase nahi hai.
-    /// Naya package add ho to sirf yahan aur migration script me kit list update karni hai.
+    /// Kit ids jinke purchase par Free Product / Scratch Card ka benefit milta hai.
+    /// Ye benefit SIRF WOW Movie package (KitId 18 - ReferLink.aspx ka "WOW Movie @999"
+    /// refer link) ke liye hai. Baaki kits par naya cycle nahi banta:
+    ///   19 = doosra kit (Login.aspx.cs sirf portal access ke liye ise allow karta hai)
+    ///   13 = FULL TANK CARD @4999, 4 = ROYAL PACKAGE @9999, 12 = FREE REGISTRATION
+    /// Kit list badle to yahan aur migration script dono me update karni hai.
     /// </summary>
-    public static readonly int[] WowKitIds = { 4, 13, 18, 19 };
+    public static readonly int[] WowKitIds = { 18 };
 
-    /// <summary>WowKitIds ka "4, 13, 18, 19" form - SQL IN (...) ke liye.</summary>
+    /// <summary>WowKitIds ka "18" form - SQL IN (...) ke liye.</summary>
     private static string KitIdList
     {
         get { return string.Join(", ", Array.ConvertAll(WowKitIds, k => k.ToString())); }
