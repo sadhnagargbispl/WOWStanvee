@@ -19,11 +19,11 @@ public partial class GetScratchByFormNo : System.Web.UI.Page
         {
             SqlCommand cmd = new SqlCommand(
                 "SELECT TOP 1 ProductId,ProductName,ProductPrice,ProductImage FROM ScratchHistory " +
-                "WHERE FormNo=@FormNo AND ISNULL(CycleId, 0)=@CycleId",
+                "WHERE FormNo=@FormNo AND ISNULL(WowCycleId, 0)=@WowCycleId",
                 con);
 
             cmd.Parameters.AddWithValue("@FormNo", formNo);
-            cmd.Parameters.AddWithValue("@CycleId", cycleId);
+            cmd.Parameters.AddWithValue("@WowCycleId", cycleId);
             con.Open();
 
             SqlDataReader dr = cmd.ExecuteReader();

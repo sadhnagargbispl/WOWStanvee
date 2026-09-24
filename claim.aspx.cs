@@ -79,12 +79,12 @@ public partial class claim : System.Web.UI.Page
         string checkSql = @"SELECT COUNT(1)
                             FROM   ScratchClaimOrder
                             WHERE  FormNo = @FormNo
-                                   AND CycleId = @CycleId
+                                   AND WowCycleId = @WowCycleId
                                    AND UPPER(Status) = 'SUCCESS'";
         SqlParameter[] checkParams =
         {
             new SqlParameter("@FormNo", formNo),
-            new SqlParameter("@CycleId", cycleId)
+            new SqlParameter("@WowCycleId", cycleId)
         };
 
         int alreadyClaimed = Convert.ToInt32(SqlHelper.ExecuteScalar(constr, CommandType.Text, checkSql, checkParams));
@@ -113,12 +113,12 @@ public partial class claim : System.Web.UI.Page
             if (i > 0)
             {
                 // Order ko current purchase cycle se jodo - payment success par isi ko SUCCESS mark karenge
-                string orderSql = @"INSERT INTO ScratchClaimOrder (OrderId, FormNo, CycleId, ProductId, Status)
-                                    VALUES (@OrderId, @FormNo, @CycleId, @ProductId, 'INITIATED')";
+                string orderSql = @"INSERT INTO ScratchClaimOrder (OrderId, FormNo, WowCycleId, ProductId, Status)
+                                    VALUES (@OrderId, @FormNo, @WowCycleId, @ProductId, 'INITIATED')";
                 SqlHelper.ExecuteNonQuery(constr, CommandType.Text, orderSql,
                     new SqlParameter("@OrderId", OrderId),
                     new SqlParameter("@FormNo", formNo),
-                    new SqlParameter("@CycleId", cycleId),
+                    new SqlParameter("@WowCycleId", cycleId),
                     new SqlParameter("@ProductId", (object)productid ?? DBNull.Value));
 
                 GenerateQrCode(OrderId, "699");

@@ -37,11 +37,11 @@ public partial class SaveScratch : System.Web.UI.Page
         using (SqlConnection con = new SqlConnection(conStr))
         {
             string sql = @"
-    IF NOT EXISTS (SELECT 1 FROM ScratchHistory WHERE FormNo = @FormNo AND ISNULL(CycleId, 0) = @CycleId)
+    IF NOT EXISTS (SELECT 1 FROM ScratchHistory WHERE FormNo = @FormNo AND ISNULL(WowCycleId, 0) = @WowCycleId)
     BEGIN
         INSERT INTO ScratchHistory
-        (ProductId, ProductName, ProductPrice, ProductImage, FormNo, CycleId)
-        VALUES (@pid, @name, @price, @image, @FormNo, NULLIF(@CycleId, 0))
+        (ProductId, ProductName, ProductPrice, ProductImage, FormNo, WowCycleId)
+        VALUES (@pid, @name, @price, @image, @FormNo, NULLIF(@WowCycleId, 0))
     END";
 
             SqlCommand cmd = new SqlCommand(sql, con);
@@ -50,7 +50,7 @@ public partial class SaveScratch : System.Web.UI.Page
             cmd.Parameters.AddWithValue("@price", price);
             cmd.Parameters.AddWithValue("@image", image);
             cmd.Parameters.AddWithValue("@FormNo", FormNo);
-            cmd.Parameters.AddWithValue("@CycleId", cycleId);
+            cmd.Parameters.AddWithValue("@WowCycleId", cycleId);
             con.Open();
             try
             {

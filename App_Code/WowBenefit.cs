@@ -10,11 +10,15 @@ using System.Web;
 /// Rule:
 ///  - Member jab bhi WOW Movie package (KitId 18 / 19) purchase karta hai, ek naya cycle ban
 ///    jaata hai. Baaki kits (Royal / Full Tank Card / Free Registration) par cycle nahi banti.
-///  - Free Product aur Scratch Card ka entitlement HAMESHA current (latest) cycle ka hi hota hai.
-///  - Pichhle cycle me agar claim nahi kiya to wo lapse ho jaata hai - sirf current cycle claim ho sakta hai.
+///  - Free Product aur Scratch Card ka entitlement HAMESHA current (latest) cycle ka hota hai.
+///  - Pichhle cycle me agar claim nahi kiya to wo lapse ho jaata hai - sirf current cycle
+///    claim ho sakta hai.
 ///
-/// Har benefit row (ScratchHistory / FreeProductClaim / ScratchClaimOrder) apne CycleId ke saath
-/// store hoti hai, isliye purana data history ke liye bana rehta hai par claimable nahi rehta.
+/// Har benefit row (ScratchHistory / FreeProductClaim / ScratchClaimOrder) apne WowCycleId ke
+/// saath store hoti hai, isliye purana data history ke liye bana rehta hai par claimable nahi.
+///
+/// NOTE: column ka naam WowCycleId hai, CycleId nahi - ScratchHistory aur FreeProductClaim me
+/// CycleId naam ka column pehle se maujood hai jiska matlab alag hai (MLM session cycle).
 /// </summary>
 public static class WowBenefit
 {
@@ -26,7 +30,7 @@ public static class WowBenefit
     /// Login.aspx.cs ka portal access check bhi inhi 18 / 19 ko allow karta hai.
     /// Baaki kits par naya cycle nahi banta:
     ///   13 = FULL TANK CARD @4999, 4 = ROYAL PACKAGE @9999, 12 = FREE REGISTRATION
-    /// Kit list badle to yahan aur sql/ ki dono scripts me update karni hai.
+    /// Kit list badle to yahan aur sql/ ki scripts me update karni hai.
     /// </summary>
     public static readonly int[] WowKitIds = { 18, 19 };
 
@@ -36,17 +40,6 @@ public static class WowBenefit
         get { return string.Join(", ", Array.ConvertAll(WowKitIds, k => k.ToString())); }
     }
 
-    /// <summary>
-    /// M_MemberMaster.KitID plain number bhi ho sakta hai aur comma separated list bhi
-    /// (Login.aspx.cs me Contains() se check hota hai), isliye dono handle karne wala predicate.
-    /// </summary>
-    private static string KitIdCsvPredicate(string columnExpression)
-    {
-        string normalized = "',' + REPLACE(CONVERT(varchar(200), ISNULL(" + columnExpression + ", '')), ' ', '') + ','";
-        string[] parts = Array.ConvertAll(WowKitIds, k => normalized + " LIKE '%," + k + ",%'");
-        return "(" + string.Join(" OR ", parts) + ")";
-    }
-
     private static string ConnectionString
     {
         get { return ConfigurationManager.ConnectionStrings["constr"].ConnectionString; }
@@ -54,8 +47,13 @@ public static class WowBenefit
 
     /// <summary>
     /// Member ke latest WOW package purchase ka CycleId. Row na ho to on-demand bana deta hai.
-    /// Purchase trace na mile to "LEGACY" cycle par gir jaata hai (purana FormNo-wise behaviour).
-    /// Ek hi request me baar baar call hone par cached value milti hai.
+    ///
+    /// Purchase ka source sirf repurchincome hai - joining ka bill bhi wahin aata hai
+    /// (BillType = 'J'), isliye M_MemberMaster alag se dekhne ki zarurat nahi. PurchaseRef
+    /// bill ki apni RId se banta hai, isliye ek hi din ke do bills bhi alag cycles rehte hain.
+    ///
+    /// Koi purchase trace na mile to "LEGACY" cycle par gir jaata hai (purana FormNo-wise
+    /// behaviour). Ek hi request me baar baar call hone par cached value milti hai.
     /// </summary>
     public static int GetCurrentCycleId(string formNo)
     {
@@ -75,23 +73,12 @@ public static class WowBenefit
 DECLARE @Ref varchar(50), @Dt datetime;
 
 SELECT TOP 1
-       @Ref = Src + ':' + CONVERT(varchar(23), PurchaseDate, 126),
-       @Dt  = PurchaseDate
-FROM (
-        SELECT 'R' AS Src, BillDate AS PurchaseDate
-        FROM   repurchincome
-        WHERE  FormNo = @FormNo
-               AND KitId IN (" + KitIdList + @")
-
-        UNION ALL
-
-        SELECT 'J', ISNULL(Upgradedate, Doj)
-        FROM   M_MemberMaster
-        WHERE  FormNo = @FormNo
-               AND " + KitIdCsvPredicate("KitID") + @"
-     ) x
-WHERE PurchaseDate IS NOT NULL
-ORDER BY PurchaseDate DESC;
+       @Ref = 'R:' + CONVERT(varchar(20), r.RId),
+       @Dt  = r.BillDate
+FROM   repurchincome r
+WHERE  r.FormNo = @FormNo
+       AND r.KitId IN (" + KitIdList + @")
+ORDER BY r.BillDate DESC, r.RId DESC;
 
 IF @Ref IS NULL SET @Ref = 'LEGACY';
 
@@ -146,12 +133,12 @@ SELECT TOP 1 CycleId FROM WowPurchaseCycle WHERE FormNo = @FormNo AND PurchaseRe
         const string sql = @"SELECT TOP 1 ProductId
                              FROM   FreeProductClaim
                              WHERE  FormNo = @FormNo
-                                    AND ISNULL(CycleId, 0) = @CycleId";
+                                    AND ISNULL(WowCycleId, 0) = @WowCycleId";
 
         object claimed = SqlHelper.ExecuteScalar(
             ConnectionString, CommandType.Text, sql,
             new SqlParameter("@FormNo", formNo),
-            new SqlParameter("@CycleId", cycleId));
+            new SqlParameter("@WowCycleId", cycleId));
 
         return (claimed == null || claimed == DBNull.Value) ? null : claimed.ToString();
     }

@@ -20,11 +20,11 @@ public partial class CheckClaimStatus : System.Web.UI.Page
             string sql = @"SELECT COUNT(1)
                            FROM   ScratchClaimOrder
                            WHERE  FormNo = @FormNo
-                                  AND CycleId = @CycleId
+                                  AND WowCycleId = @WowCycleId
                                   AND UPPER(Status) = 'SUCCESS'";
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.Parameters.AddWithValue("@FormNo", formNo);
-            cmd.Parameters.AddWithValue("@CycleId", cycleId);
+            cmd.Parameters.AddWithValue("@WowCycleId", cycleId);
 
             con.Open();
             int count = Convert.ToInt32(cmd.ExecuteScalar());

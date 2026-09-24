@@ -111,8 +111,8 @@ public partial class ClaimFreePorduct : System.Web.UI.Page
             {
                 string OrderId = DateTime.Now.ToString("yyyyMMddHHmmssfff");
                 string sql = @"INSERT INTO FreeProductClaim
-                               (ProductId, FormNo, FullName, Email, Phone, Address, City, ZipCode, IPAddress, CycleId)
-                               VALUES (@ProductId, @FormNo, @FullName, @Email, @Phone, @Address, @City, @ZipCode, @IPAddress, NULLIF(@CycleId, 0))";
+                               (ProductId, FormNo, FullName, Email, Phone, Address, City, ZipCode, IPAddress, WowCycleId)
+                               VALUES (@ProductId, @FormNo, @FullName, @Email, @Phone, @Address, @City, @ZipCode, @IPAddress, NULLIF(@WowCycleId, 0))";
 
                 int i = SqlHelper.ExecuteNonQuery(constr, CommandType.Text, sql,
                     new SqlParameter("@ProductId", productid),
@@ -124,7 +124,7 @@ public partial class ClaimFreePorduct : System.Web.UI.Page
                     new SqlParameter("@City", txtCity.Value),
                     new SqlParameter("@ZipCode", Convert.ToInt32(txtZip.Value)),
                     new SqlParameter("@IPAddress", ipAddress),
-                    new SqlParameter("@CycleId", cycleId));
+                    new SqlParameter("@WowCycleId", cycleId));
                 if (i > 0)
                 {
                     string script = "window.onload=function(){alert('Thank you! Your free product claim has been completed successfully.!');window.location='freeProduct.aspx';}";
