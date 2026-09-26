@@ -217,14 +217,14 @@ public partial class Appinsurance : System.Web.UI.Page
                 cmd.ExecuteNonQuery();
             }
             string message1 = "Insurance Form Submitted Successfully ✔";
-            string script = "window.onload=function(){alert('" + message1 + "');window.location='insurance.aspx';}";
+            string script = "window.onload=function(){alert('" + message1 + "');window.location='Appinsurance.aspx';}";
             ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script, true);
             ClearForm();
             return;
         }
         else
         {
-            string script = "window.onload=function(){alert('Try Again After Some Time.!');window.location='insurance.aspx';}";
+            string script = "window.onload=function(){alert('Try Again After Some Time.!');window.location='Appinsurance.aspx';}";
             ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script, true);
             return;
         }

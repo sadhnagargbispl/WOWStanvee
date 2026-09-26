@@ -1369,6 +1369,114 @@ form#form1 > div:not(.app-root) {
 }
 
 /* ═══════════════════════════════════════════
+   REFER LINKS (AppReferLink.aspx)
+   ═══════════════════════════════════════════ */
+.refer-wrap {
+    background: #f0f2f6;
+    padding: 14px 14px 20px;
+    display: grid;
+    gap: 13px;
+}
+
+.refer-card {
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.08), 0 0 0 1px rgba(0,0,0,.04);
+}
+
+.refer-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--rc);
+    color: #fff;
+}
+
+.refer-icon {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+}
+
+.refer-title {
+    font-size: .92rem;
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.refer-sub {
+    font-size: .72rem;
+    font-weight: 700;
+    opacity: .85;
+}
+
+.refer-body {
+    padding: 14px 16px 16px;
+}
+
+.refer-copy {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: none;
+    border-radius: 11px;
+    padding: 12px;
+    font-family: inherit;
+    font-size: .88rem;
+    font-weight: 800;
+    color: #fff;
+    background: var(--rc);
+    cursor: pointer;
+    transition: transform .12s, background .2s;
+}
+
+    .refer-copy:active {
+        transform: scale(.97);
+    }
+
+    .refer-copy.copied {
+        background: #16a34a;
+    }
+
+.refer-share {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.share-btn {
+    height: 42px;
+    border-radius: 11px;
+    border: 1.5px solid #e5e7eb;
+    background: #fff;
+    font-size: 1.1rem;
+    color: var(--muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .share-btn:active {
+        transform: scale(.95);
+    }
+
+.share-wa { color: #25D366; }
+.share-fb { color: #1877F2; }
+.share-li { color: #0A66C2; }
+
+/* ═══════════════════════════════════════════
    PRODUCT CARDS (Free Products / catalogue)
    ═══════════════════════════════════════════ */
 .prod-wrap {

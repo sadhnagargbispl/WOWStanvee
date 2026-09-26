@@ -137,6 +137,12 @@
                                 </a>
                             </li>
 
+                            <li>
+                                <a href="AppReferLink.aspx" onclick="closeDrawer()">
+                                    <span class="d-icon"><i class="fa fa-share-nodes"></i></span>Refer Links
+                                </a>
+                            </li>
+
                             <li class="d-hr"></li>
 
                             <!-- ═══ ACCOUNT ═══ -->
@@ -146,7 +152,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="Login.aspx" onclick="closeDrawer()">
+                                <a href="AppLogout.aspx" onclick="closeDrawer()">
                                     <span class="d-icon"><i class="fa fa-power-off"></i></span>Logout
                                 </a>
                             </li>
@@ -170,7 +176,7 @@
                         </div>
                         <div class="h-right">
                             <div class="notif-wrap">
-                                <a href="login.html" class="h-icon-btn" title="Login" style="text-decoration: none;">
+                                <a href="AppLogin.aspx" class="h-icon-btn" title="Login" style="text-decoration: none;">
                                     <i class="fa fa-sign-in-alt"></i>
                                 </a>
                             </div>
