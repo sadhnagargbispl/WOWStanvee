@@ -36,11 +36,15 @@ public partial class AppfreeProduct : System.Web.UI.Page
             DataSet Ds = new DataSet();
             string Sql = "Exec Sp_GetDetails";
             Ds = SqlHelper.ExecuteDataset(constr, CommandType.Text, Sql);
-            if (Ds.Tables[1].Rows.Count > 0)
+            int count = 0;
+            if (Ds.Tables.Count > 1 && Ds.Tables[1].Rows.Count > 0)
             {
+                count = Ds.Tables[1].Rows.Count;
                 RptOffers.DataSource = Ds.Tables[1];
                 RptOffers.DataBind();
             }
+            litCount.Text = count + (count == 1 ? " Item" : " Items");
+            pnlEmpty.Visible = count == 0;
         }
         catch (Exception ex)
         {
@@ -59,7 +63,7 @@ public partial class AppfreeProduct : System.Web.UI.Page
             string formNo = Session["formno"].ToString();
             if (WowBenefit.IsFreeProductClaimed(formNo, WowBenefit.GetCurrentCycleId(formNo)))
             {
-                string script = "window.onload=function(){alert('You have already claimed.');window.location='freeProduct.aspx';}";
+                string script = "window.onload=function(){alert('You have already claimed.');window.location='AppfreeProduct.aspx';}";
                 ClientScript.RegisterStartupScript(this.GetType(), "AlreadyClaimed", script, true);
                 return;
             }
@@ -103,7 +107,7 @@ public partial class AppfreeProduct : System.Web.UI.Page
                     // ❌ Baaki sab products disable
                     btnClaim.Enabled = false;
                     btnClaim.Text = "Claim Now";
-                    btnClaim.CssClass = "mt-4 w-full bg-gray-400 text-white py-2 rounded-lg font-medium";
+                    btnClaim.CssClass = "claim-btn"; // AppWeb.css ka .claim-btn:disabled grey style lagata hai
                 }
             }
             else

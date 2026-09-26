@@ -114,6 +114,9 @@
             /* ---------- 2. HIDE CANVAS ---------- */
             function hideCanvas() {
                 canvas.classList.add("hidden-canvas");
+                canvas.style.display = "none";
+                canvas.style.pointerEvents = "none";
+                canvas.style.zIndex = "-1";
             }
 
             /* ---------- 3. PRODUCTS ---------- */
