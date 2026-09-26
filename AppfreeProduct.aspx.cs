@@ -26,7 +26,7 @@ public partial class AppfreeProduct : System.Web.UI.Page
         }
         else
         {
-            Response.Redirect("Login.aspx", false);
+            Response.Redirect("AppLogin.aspx", false);
         }
     }
     private void BindServices()

@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AppLogout.aspx.cs" Inherits="AppLogout" %>

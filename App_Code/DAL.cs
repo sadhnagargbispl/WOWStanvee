@@ -44,9 +44,9 @@ public class DAL
     public string tblMemberMaster = "M_MemberMaster";
     public string tblKitProductMaster = "M_KitProductMaster";
     public string tblCTypeMaster = "M_ComplaintTypeMaster";
-    public string Isostart = " Alter Database waveworld Set Allow_SnapShot_isolation on; Set Transaction Isolation level read uncommitted;Set nocount on; Begin Tran  ";
+    public string Isostart = " Alter Database Stanvee Set Allow_SnapShot_isolation on; Set Transaction Isolation level read uncommitted;Set nocount on; Begin Tran  ";
     public string IsoEnd = " Commit Tran ";
-    public string dBName = "waveworld";
+    public string dBName = "Stanvee";
     
     public DAL()
     {
