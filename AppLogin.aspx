@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AppLogin.aspx.cs" Inherits="AppLogin" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AppLogin.aspx.cs" Inherits="AppLogin" %>
 
 <!DOCTYPE html>
 
@@ -6,9 +6,10 @@
 <head runat="server">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#002E6E" />
     <title>Login – ePay India</title>
     <link rel="icon" type="image/x-icon" href="demoepay/images/favicon.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
         *, *::before, *::after {
@@ -18,19 +19,21 @@
         }
 
         :root {
-            --primary: #E84000;
-            --primary-d: #c43600;
-            --accent: #ff6b35;
-            --dark: #1A1A2E;
-            --bg: #f4f6fb;
-            --text: #2d2d2d;
-            --muted: #6b7280;
-            --radius: 16px;
+            --primary: #00BAF2;
+            --primary-d: #00A3D9;
+            --navy: #002E6E;
+            --navy-2: #0A3D8F;
+            --sky: #E8F7FD;
+            --bg: #FFFFFF;
+            --line: #E3E8EF;
+            --text: #1B2A41;
+            --muted: #6B7A90;
+            --radius: 14px;
         }
 
         html, body {
             height: 100%;
-            font-family: 'Nunito', sans-serif;
+            font-family: 'Inter', sans-serif;
             background: var(--bg);
             color: var(--text);
         }
@@ -42,33 +45,33 @@
             margin: 0 auto;
             min-height: 100vh;
             background: var(--bg);
-            box-shadow: 0 0 60px rgba(0,0,0,.18);
+            box-shadow: 0 0 60px rgba(0,46,110,.12);
             display: flex;
             flex-direction: column;
         }
 
         @media (min-width:481px) {
             body {
-                background: #c8cdd8;
+                background: #EEF3F9;
             }
         }
 
         /* ── header ── */
         .app-header {
-            height: 62px;
-            background: var(--dark);
+            height: 58px;
+            background: #fff;
             display: flex;
             align-items: center;
             padding: 0 16px;
             gap: 12px;
-            box-shadow: 0 2px 16px rgba(0,0,0,.3);
+            border-bottom: 1px solid var(--line);
             flex-shrink: 0;
         }
 
         .h-back {
-            background: rgba(255,255,255,.1);
+            background: var(--sky);
             border: none;
-            color: #fff;
+            color: var(--navy);
             width: 36px;
             height: 36px;
             border-radius: 50%;
@@ -79,33 +82,40 @@
             cursor: pointer;
             text-decoration: none;
             flex-shrink: 0;
-            transition: background .2s;
         }
 
-            .h-back:hover {
-                background: rgba(255,255,255,.22);
-            }
-
         .h-logo {
-            height: 34px;
+            height: 30px;
             object-fit: contain;
             flex-shrink: 0;
         }
 
-        .h-title {
-            color: #fff;
-            font-size: 1.05rem;
+        .h-brand {
+            font-size: 1.25rem;
             font-weight: 800;
+            color: var(--navy);
+            letter-spacing: -.3px;
         }
 
-            .h-title span {
-                color: var(--accent);
+            .h-brand span {
+                color: var(--primary);
             }
+
+        .h-help {
+            margin-left: auto;
+            color: var(--navy);
+            font-size: .8rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
 
         /* ── hero strip ── */
         .hero-strip {
-            background: linear-gradient(135deg, #1A1A2E 0%, #2d1b4e 60%, #1a3050 100%);
-            padding: 30px 20px 36px;
+            background: linear-gradient(180deg, var(--sky) 0%, #F5FBFE 100%);
+            padding: 28px 20px 44px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -114,38 +124,27 @@
             .hero-strip::before {
                 content: '';
                 position: absolute;
-                top: -60px;
-                right: -60px;
+                top: -70px;
+                right: -50px;
                 width: 200px;
                 height: 200px;
                 border-radius: 50%;
-                background: radial-gradient(circle, rgba(232,64,0,.3) 0%, transparent 70%);
-            }
-
-            .hero-strip::after {
-                content: '';
-                position: absolute;
-                bottom: -40px;
-                left: -30px;
-                width: 140px;
-                height: 140px;
-                border-radius: 50%;
-                background: radial-gradient(circle, rgba(255,107,53,.2) 0%, transparent 70%);
+                background: radial-gradient(circle, rgba(0,186,242,.22) 0%, transparent 70%);
             }
 
         .logo-circle {
-            width: 76px;
-            height: 76px;
-            border-radius: 20px;
-            background: #fff;
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--navy-2));
             margin: 0 auto 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 6px;
+            padding: 12px;
             position: relative;
             z-index: 1;
-            box-shadow: 0 6px 24px rgba(0,0,0,.25);
+            box-shadow: 0 8px 22px rgba(0,186,242,.35);
         }
 
             .logo-circle img {
@@ -155,21 +154,21 @@
             }
 
         .logo-icon-fallback {
-            font-size: 2rem;
-            color: var(--primary);
+            font-size: 1.8rem;
+            color: #fff;
         }
 
         .hero-h {
-            color: #fff;
-            font-size: 1.3rem;
+            color: var(--navy);
+            font-size: 1.35rem;
             font-weight: 800;
             position: relative;
             z-index: 1;
         }
 
         .hero-sub {
-            color: rgba(255,255,255,.55);
-            font-size: .78rem;
+            color: var(--muted);
+            font-size: .82rem;
             margin-top: 4px;
             position: relative;
             z-index: 1;
@@ -178,18 +177,19 @@
         /* ── card ── */
         .login-card {
             background: #fff;
-            margin: -18px 16px 0;
+            margin: -24px 16px 0;
             border-radius: 20px;
-            padding: 28px 20px 24px;
-            box-shadow: 0 4px 24px rgba(0,0,0,.1);
+            padding: 24px 20px 22px;
+            border: 1px solid var(--line);
+            box-shadow: 0 10px 30px rgba(0,46,110,.08);
             position: relative;
             z-index: 2;
         }
 
         .card-title {
-            font-size: 1rem;
-            font-weight: 800;
-            color: var(--text);
+            font-size: 1.02rem;
+            font-weight: 700;
+            color: var(--navy);
             margin-bottom: 20px;
             display: flex;
             align-items: center;
@@ -207,12 +207,10 @@
 
             .field label {
                 display: block;
-                font-size: .75rem;
-                font-weight: 700;
+                font-size: .78rem;
+                font-weight: 600;
                 color: var(--muted);
                 margin-bottom: 6px;
-                text-transform: uppercase;
-                letter-spacing: .5px;
             }
 
         .input-wrap {
@@ -221,50 +219,50 @@
 
             .input-wrap .f-icon {
                 position: absolute;
-                left: 13px;
+                left: 14px;
                 top: 50%;
                 transform: translateY(-50%);
-                color: var(--muted);
+                color: var(--primary);
                 font-size: .9rem;
                 pointer-events: none;
             }
 
             .input-wrap input {
                 width: 100%;
-                padding: 12px 44px 12px 40px;
-                border: 1.8px solid #e5e7eb;
+                height: 50px;
+                padding: 0 44px 0 42px;
+                border: 1.5px solid var(--line);
                 border-radius: 12px;
-                font-family: 'Nunito', sans-serif;
-                font-size: .9rem;
+                font-family: 'Inter', sans-serif;
+                font-size: .95rem;
                 font-weight: 600;
                 color: var(--text);
-                background: #fafafa;
+                background: #fff;
                 outline: none;
-                transition: border-color .2s, box-shadow .2s, background .2s;
+                transition: border-color .2s, box-shadow .2s;
             }
 
                 .input-wrap input:focus {
                     border-color: var(--primary);
-                    background: #fff;
-                    box-shadow: 0 0 0 3px rgba(232,64,0,.1);
+                    box-shadow: 0 0 0 4px rgba(0,186,242,.12);
                 }
 
                 .input-wrap input::placeholder {
-                    color: #c4c8d0;
+                    color: #A9B4C4;
                     font-weight: 500;
                 }
 
         .toggle-pw {
             position: absolute;
-            right: 13px;
+            right: 12px;
             top: 50%;
             transform: translateY(-50%);
             background: none;
             border: none;
             color: var(--muted);
             cursor: pointer;
-            font-size: .85rem;
-            padding: 2px;
+            font-size: .9rem;
+            padding: 4px;
         }
 
         /* ── remember / forgot row ── */
@@ -279,22 +277,22 @@
             display: flex;
             align-items: center;
             gap: 7px;
-            font-size: .78rem;
-            font-weight: 600;
+            font-size: .8rem;
+            font-weight: 500;
             color: var(--muted);
             cursor: pointer;
         }
 
             .remember input[type=checkbox] {
                 accent-color: var(--primary);
-                width: 15px;
-                height: 15px;
+                width: 16px;
+                height: 16px;
             }
 
         .forgot-link {
-            font-size: .78rem;
-            font-weight: 700;
-            color: var(--primary);
+            font-size: .8rem;
+            font-weight: 600;
+            color: var(--primary-d);
             text-decoration: none;
         }
 
@@ -305,115 +303,53 @@
         /* ── submit btn ── */
         .btn-login {
             width: 100%;
-            padding: 14px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            height: 52px;
+            background: var(--primary);
             color: #fff;
             border: none;
-            border-radius: 13px;
-            font-family: 'Nunito', sans-serif;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
             font-size: 1rem;
-            font-weight: 800;
+            font-weight: 700;
+            letter-spacing: .2px;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: opacity .2s, transform .15s;
-            box-shadow: 0 4px 16px rgba(232,64,0,.35);
+            transition: background .2s, transform .15s;
+            box-shadow: 0 6px 16px rgba(0,186,242,.3);
         }
 
             .btn-login:hover {
-                opacity: .92;
-                transform: translateY(-1px);
+                background: var(--primary-d);
             }
 
             .btn-login:active {
-                transform: translateY(0);
+                transform: scale(.99);
             }
 
-        /* ── divider ── */
-        .divider {
+        /* ── trust strip ── */
+        .trust-row {
             display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 20px 0;
-            color: var(--muted);
-            font-size: .75rem;
-            font-weight: 600;
-        }
-
-            .divider::before, .divider::after {
-                content: '';
-                flex: 1;
-                height: 1.5px;
-                background: #e5e7eb;
-            }
-
-        /* ── social btns ── */
-        .social-row {
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn-social {
-            flex: 1;
-            padding: 11px 8px;
-            border: 1.8px solid #e5e7eb;
-            border-radius: 12px;
-            background: #fff;
-            font-family: 'Nunito', sans-serif;
-            font-size: .8rem;
-            font-weight: 700;
-            color: var(--text);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            gap: 7px;
-            transition: border-color .2s, background .2s;
-        }
-
-            .btn-social:hover {
-                border-color: var(--primary);
-                background: #fff8f5;
-            }
-
-            .btn-social .fa-google {
-                color: #ea4335;
-            }
-
-            .btn-social .fa-mobile-alt {
-                color: var(--primary);
-            }
-
-        /* ── register link ── */
-        .register-row {
-            text-align: center;
-            margin-top: 22px;
-            font-size: .82rem;
+            gap: 18px;
+            margin-top: 18px;
+            font-size: .72rem;
             color: var(--muted);
-            font-weight: 600;
+            font-weight: 500;
         }
 
-            .register-row a {
+            .trust-row i {
                 color: var(--primary);
-                font-weight: 800;
-                text-decoration: none;
+                margin-right: 4px;
             }
-
-                .register-row a:hover {
-                    text-decoration: underline;
-                }
 
         /* ── error msg ── */
         .err-msg {
-            background: #fff1f2;
-            border: 1.5px solid #fca5a5;
+            background: #FFF1F2;
+            border: 1.5px solid #FCA5A5;
             border-radius: 10px;
             padding: 10px 14px;
             font-size: .8rem;
-            font-weight: 700;
-            color: #dc2626;
+            font-weight: 600;
+            color: #DC2626;
             margin-bottom: 16px;
             display: none;
             align-items: center;
@@ -426,15 +362,29 @@
 
         /* ── footer note ── */
         .page-footer {
+            margin-top: auto;
             text-align: center;
-            padding: 18px 16px 24px;
-            font-size: .68rem;
+            padding: 22px 16px 24px;
+            font-size: .7rem;
             color: var(--muted);
+            line-height: 1.6;
         }
 
             .page-footer a {
-                color: var(--primary);
+                color: var(--primary-d);
                 text-decoration: none;
+                font-weight: 600;
+            }
+
+        .footer-brand {
+            margin-top: 10px;
+            font-size: .72rem;
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+            .footer-brand i {
+                color: var(--primary);
             }
 
         /* ── toast ── */
@@ -443,18 +393,18 @@
             bottom: 24px;
             left: 50%;
             transform: translateX(-50%) translateY(16px);
-            background: #222;
+            background: var(--navy);
             color: #fff;
-            padding: 9px 20px;
+            padding: 10px 20px;
             border-radius: 50px;
             font-size: .8rem;
-            font-weight: 600;
+            font-weight: 500;
             opacity: 0;
             transition: opacity .28s, transform .28s;
             pointer-events: none;
             z-index: 999;
             white-space: nowrap;
-            box-shadow: 0 4px 16px rgba(0,0,0,.25);
+            box-shadow: 0 4px 16px rgba(0,46,110,.3);
         }
 
             .toast.show {
@@ -473,27 +423,29 @@
                     <a href="webapp.aspx" class="h-back" title="Back" style="display: none;">
                         <i class="fa fa-arrow-left"></i>
                     </a>
-                    <img src="demoepay/images/logo_light.png" alt="ePay" class="h-logo" onerror="this.style.display='none'" />
-                  <%--  <div class="h-title">e<span>Pay</span> India</div>--%>
+                    <img src="demoepay/images/logo.png" alt="ePay" class="h-logo"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <div class="h-brand" style="display: none;">e<span>Pay</span></div>
+                    <a href="#" class="h-help" onclick="showToast('Support: help@epayindia.com'); return false;">
+                        <i class="fa fa-headset"></i>Help
+                    </a>
                 </header>
 
                 <!-- HERO STRIP -->
                 <div class="hero-strip">
                     <div class="logo-circle">
-                        <img src="demoepay/images/logo.png" alt="ePay India" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-                        <i class="fa fa-wallet logo-icon-fallback" style="display: none;"></i>
+                        <i class="fa fa-wallet logo-icon-fallback"></i>
                     </div>
                     <div class="hero-h">Welcome Back!</div>
-                    <div class="hero-sub">Sign in to your ePay India account</div>
+                    <div class="hero-sub">Login to your ePay India account</div>
                 </div>
 
                 <!-- LOGIN CARD -->
                 <div class="login-card">
 
                     <div class="card-title">
-                        <i class="fa fa-sign-in-alt"></i>
+                        <i class="fa fa-circle-user"></i>
                         Member Login
-   
                     </div>
 
                     <!-- error box -->
@@ -507,25 +459,21 @@
 
                     <!-- User ID -->
                     <div class="field">
-                        <label for="userId">User ID</label>
+                        <label for="<%= TxtUserID.ClientID %>">User ID</label>
                         <div class="input-wrap">
                             <i class="fa fa-user f-icon"></i>
                             <asp:TextBox ID="TxtUserID" runat="server"
                                 placeholder="Enter your User ID"
                                 MaxLength="50">
                             </asp:TextBox>
-                            <%--  <input type="text" id="userId" name="userId"
-                            placeholder="Enter your User ID" autocomplete="username" required />--%>
                         </div>
                     </div>
 
                     <!-- Password -->
                     <div class="field">
-                        <label for="password">Password</label>
+                        <label for="<%= TxtPassword.ClientID %>">Password</label>
                         <div class="input-wrap">
                             <i class="fa fa-lock f-icon"></i>
-                            <%--  <input type="password" id="password" name="password"
-                                placeholder="Enter your password" autocomplete="current-password" required />--%>
                             <asp:TextBox ID="TxtPassword" runat="server"
                                 TextMode="Password"
                                 placeholder="Enter your password"
@@ -536,11 +484,6 @@
                                 aria-label="Show/hide password">
                                 <i id="eyeIcon" class="fa fa-eye"></i>
                             </button>
-                            <%--       <a href="webapp.html">
-                                <button type="button" class="toggle-pw" onclick="togglePw()" id="pwToggle" title="Show / Hide">
-                                    <i class="fa fa-eye" id="pwIcon"></i>
-                                </button>
-                            </a>--%>
                         </div>
                     </div>
 
@@ -549,57 +492,31 @@
                         <label class="remember">
                             <input type="checkbox" id="rememberMe" />
                             Remember me
-       
                         </label>
-                        <a href="#" class="forgot-link" onclick="showToast('Password reset link will be sent to your registered email.')">Forgot Password?
+                        <a href="#" class="forgot-link" onclick="showToast('Password reset link will be sent to your registered email.'); return false;">Forgot Password?
                         </a>
                     </div>
 
                     <!-- Submit -->
                     <asp:Button ID="BtnLogin" runat="server"
-                        Text="Login  →"
+                        Text="Proceed Securely"
                         CssClass="btn-login"
                         OnClick="BtnLogin_Click" />
 
-                    <%-- <button type="submit" class="btn-login">
-                        <i class="fa fa-sign-in-alt"></i>
-                        Login to Account
-     
-                    </button>--%>
-
-                    <!-- Divider -->
-                    <%--   <div class="divider">OR LOGIN WITH</div>--%>
-
-                    <!-- Social -->
-                    <%--         <div class="social-row">
-                        <button class="btn-social" onclick="showToast('Google login coming soon')">
-                            <i class="fab fa-google"></i>Google
-     
-                        </button>
-                        <button class="btn-social" onclick="showToast('OTP login coming soon')">
-                            <i class="fa fa-mobile-alt"></i>OTP Login
-     
-                        </button>
-                    </div>--%>
-
-                    <!-- Register link -->
-                    <%--     <div class="register-row">
-                        Don't have an account?
-     
-                        <a href="register.html">Register Now</a>
-                    </div>--%>
+                    <div class="trust-row">
+                        <span><i class="fa fa-shield-halved"></i>100% Secure</span>
+                        <span><i class="fa fa-lock"></i>Encrypted Login</span>
+                    </div>
                 </div>
                 <!-- /login-card -->
 
                 <!-- FOOTER NOTE -->
                 <div class="page-footer">
                     By logging in you agree to our
-   
                     <a href="#">Terms of Service</a> &amp;
-   
-                    <a href="#">Privacy Policy</a><br />
+                    <a href="#">Privacy Policy</a>
+                    <div class="footer-brand"><i class="fa fa-heart"></i> Made in India</div>
                     © 2025 ePay India. All rights reserved.
- 
                 </div>
 
             </div>
@@ -624,14 +541,23 @@
                 }
             }
 
+            function showToast(msg) {
+                var t = document.getElementById('toast');
+                t.textContent = msg;
+                t.classList.add('show');
+                clearTimeout(t._timer);
+                t._timer = setTimeout(function () { t.classList.remove('show'); }, 2600);
+            }
+
             // Show server-side error label if it has text
             window.addEventListener('DOMContentLoaded', function () {
                 var lbl = document.getElementById('<%= lblError.ClientID %>');
                 if (lbl && lbl.innerText.trim() !== '') {
                     lbl.style.display = 'block';
+                    document.getElementById('errMsg').classList.add('show');
                 }
             });
-        </script >
+        </script>
 
     </form>
 </body>
