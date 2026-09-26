@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-    <link href="assets/css/AppIndex.css?v=3" rel="stylesheet" />
+    <link href="assets/css/AppIndex.css?v=4" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -714,14 +714,19 @@
             </div>
         </footer>
 
-        <!-- ═══ STICKY CTA (mobile only) ═══ -->
-        <div class="sticky-cta" id="stickyCta">
-            <div>
-                <div class="s-lbl">WOW Package · 5 Benefits</div>
-                <div class="s-val">₹999</div>
+        <!-- ═══ FIXED BOTTOM NAV (Login / Logout) ═══ -->
+        <nav class="bottom-nav" data-ui>
+            <div class="bn-inner">
+                <a href="#hero" class="bn-tab active"><i class="fa fa-home"></i><span>Home</span></a>
+                <a href="#benefits" class="bn-tab"><i class="fa fa-box"></i><span>Benefits</span></a>
+                <% if (IsLoggedIn) { %>
+                <a href="WebApp.aspx" class="bn-tab"><i class="fa fa-user-circle"></i><span>My Account</span></a>
+                <a href="AppLogout.aspx" class="bn-tab bn-logout"><i class="fa fa-power-off"></i><span>Logout</span></a>
+                <% } else { %>
+                <a href="AppLogin.aspx" class="bn-tab bn-login"><i class="fa fa-sign-in-alt"></i><span>Login</span></a>
+                <% } %>
             </div>
-            <a href="https://wow.stanvee.com/MM_Voucher.aspx" class="btn btn-primary">Get It Now <i class="fas fa-arrow-right"></i></a>
-        </div>
+        </nav>
 
         <script>
             /* ── Drawer ── */
@@ -798,17 +803,12 @@
                     });
                 });
 
-                /* ── Sticky CTA after hero ── */
-                var cta = document.getElementById('stickyCta'), hero = document.getElementById('hero');
-                function onScroll() { cta.classList.toggle('show', hero.getBoundingClientRect().bottom < 0); }
-                window.addEventListener('scroll', onScroll, { passive: true });
-                onScroll();
             })();
 
             /* ── App landing: every link / button / card opens AppLogin (or WebApp if already logged in).
                   Page-only controls (slider, tabs, carousels, FAQ, drawer, in-page anchors) are marked data-ui. ── */
             (function () {
-                var target = '<%= (Session["Status"] != null && Session["Status"].ToString() == "OK") ? "WebApp.aspx" : "AppLogin.aspx" %>';
+                var target = '<%= IsLoggedIn ? "WebApp.aspx" : "AppLogin.aspx" %>';
                 var clickable = 'a, button, input[type=submit], input[type=button], [onclick], .movie, .pcard, .dest';
 
                 window.addEventListener('click', function (e) {

@@ -15,6 +15,11 @@ public partial class AppIndex : System.Web.UI.Page
 {
     string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
     string constr1 = ConfigurationManager.ConnectionStrings["constr1"].ConnectionString;
+
+    protected bool IsLoggedIn
+    {
+        get { return Session["Status"] != null && Session["Status"].ToString() == "OK"; }
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
