@@ -9,8 +9,8 @@ public partial class AppLogout : System.Web.UI.Page
 {
     protected void Page_Load(object sender, System.EventArgs e)
     {
-        string nextpage ="Applogin.aspx";
-        nextpage = "Applogin.aspx";
+        string nextpage ="appindex.aspx";
+        nextpage = "appindex.aspx";
         Response.Cache.SetCacheability(HttpCacheability.NoCache);
         Response.Cache.SetExpires(DateTime.UtcNow.AddHours(-1));
         Response.Cache.SetAllowResponseInBrowserHistory(false);

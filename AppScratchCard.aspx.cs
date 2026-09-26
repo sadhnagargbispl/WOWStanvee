@@ -21,7 +21,7 @@ public partial class AppScratchCard : System.Web.UI.Page
             }
             else
             {
-                Response.Redirect("AppLogin.aspx", false);
+                Response.Redirect("AppLogout.aspx", false);
             }
         }
         catch (Exception ex)

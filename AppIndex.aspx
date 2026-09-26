@@ -718,7 +718,7 @@
         <nav class="bottom-nav" data-ui>
             <div class="bn-inner">
                 <a href="#hero" class="bn-tab active"><i class="fa fa-home"></i><span>Home</span></a>
-                <a href="#benefits" class="bn-tab"><i class="fa fa-box"></i><span>Benefits</span></a>
+              <%--  <a href="#benefits" class="bn-tab"><i class="fa fa-box"></i><span>Benefits</span></a>--%>
                 <% if (IsLoggedIn) { %>
                 <a href="WebApp.aspx" class="bn-tab"><i class="fa fa-user-circle"></i><span>My Account</span></a>
                 <a href="AppLogout.aspx" class="bn-tab bn-logout"><i class="fa fa-power-off"></i><span>Logout</span></a>

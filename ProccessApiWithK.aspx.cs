@@ -4732,7 +4732,7 @@ public partial class ProccessApiWithK : System.Web.UI.Page
                     string result = System.DateTime.Now.Day.ToString() + (System.DateTime.Now.Hour - 1).ToString() + System.DateTime.Now.Year.ToString() + (System.DateTime.Now.Month - 1).ToString();
                     string urlmyac = "https://wow.stanvee.com/login.aspx?lgnT=" + LgnID + "&ID=" + result;
 
-                    string url = "https://epayindia.in/AppLogin.aspx?lgnT=" + LgnID;
+                    string url = "https://wow.stanvee.com/AppLogin.aspx?lgnT=" + LgnID;
 
                     return "{ \"response\":\"OK\", \"mname\":\"" + MemName + "\", \"isactive\":\"" + ActiveStatus + "\", \"isfranchise\":\"" + IsFranchise + "\"," +
                            " \"kitid\":\"" + KitId + "\", \"profilepic\":\"" + profilePic + "\", \"mobileno\":\"" + Mobl + "\"," +

@@ -7,7 +7,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="theme-color" content="#002E6E" />
-    <title>Login – ePay India</title>
+    <title>Login</title>
     <link rel="icon" type="image/x-icon" href="demoepay/images/favicon.png" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -425,10 +425,10 @@
                     </a>
                     <img src="demoepay/images/logo.png" alt="ePay" class="h-logo"
                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-                    <div class="h-brand" style="display: none;">e<span>Pay</span></div>
-                    <a href="#" class="h-help" onclick="showToast('Support: help@epayindia.com'); return false;">
+                    <%-- <div class="h-brand" style="display: none;">e<span>Pay</span></div>--%>
+                    <%--  <a href="#" class="h-help" onclick="showToast('Support: help@epayindia.com'); return false;">
                         <i class="fa fa-headset"></i>Help
-                    </a>
+                    </a>--%>
                 </header>
 
                 <!-- HERO STRIP -->
@@ -437,7 +437,7 @@
                         <i class="fa fa-wallet logo-icon-fallback"></i>
                     </div>
                     <div class="hero-h">Welcome Back!</div>
-                    <div class="hero-sub">Login to your ePay India account</div>
+                    <%--<div class="hero-sub">Login to your ePay India account</div>--%>
                 </div>
 
                 <!-- LOGIN CARD -->
@@ -503,22 +503,21 @@
                         CssClass="btn-login"
                         OnClick="BtnLogin_Click" />
 
-                    <div class="trust-row">
+                    <%--<div class="trust-row">
                         <span><i class="fa fa-shield-halved"></i>100% Secure</span>
                         <span><i class="fa fa-lock"></i>Encrypted Login</span>
-                    </div>
+                    </div>--%>
                 </div>
                 <!-- /login-card -->
 
                 <!-- FOOTER NOTE -->
-                <div class="page-footer">
+                <%--    <div class="page-footer">
                     By logging in you agree to our
                     <a href="#">Terms of Service</a> &amp;
                     <a href="#">Privacy Policy</a>
                     <div class="footer-brand"><i class="fa fa-heart"></i> Made in India</div>
                     © 2025 ePay India. All rights reserved.
-                </div>
-
+                </div>--%>
             </div>
             <!-- /app-shell -->
 

@@ -9,7 +9,7 @@
     <link rel="icon" type="image/x-icon" href="images/favicon.png" />
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link href="assets/css/AppWeb.css" rel="stylesheet" />
+    <link href="assets/css/AppWeb.css?v=1.8" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -176,7 +176,7 @@
                         </div>
                         <div class="h-right">
                             <div class="notif-wrap">
-                                <a href="AppLogin.aspx" class="h-icon-btn" title="Login" style="text-decoration: none;">
+                                <a href="AppLogout.aspx" class="h-icon-btn" title="Login" style="text-decoration: none;">
                                     <i class="fa fa-sign-in-alt"></i>
                                 </a>
                             </div>
@@ -191,27 +191,36 @@
                      Inner pages BottomNav ko khaali override karke
                      ise hide kar sakte hain. -->
                 <asp:ContentPlaceHolder ID="BottomNav" runat="server">
-                    <%--  <nav class="bottom-nav">
+                    <nav class="bottom-nav">
 
-                    <button type="button" class="nav-tab active" id="tab-home" onclick="setTab('home')">
-                        <span class="n-bar"></span>
-                        <i class="fa fa-home n-icon"></i>
-                        <span>Home</span>
-                    </button>
-
-                    <button type="button" class="nav-tab" id="tab-acct" onclick="setTab('acct'); showToast('My Account')">
+                        <%-- <button type="button" class="nav-tab active" id="tab-home" onclick="setTab('home')">
+                            <span class="n-bar"></span>
+                            <i class="fa fa-home n-icon"></i>
+                            <span>Home</span>
+                        </button>--%>
+                        <a class="nav-tab" id="tab-home" href="Appindex.aspx" onclick="setTab('login')">
+                            <span class="n-bar"></span>
+                            <i class="fa fa-sign-in-alt n-icon"></i>
+                            <span>Home</span>
+                        </a>
+                        <a class="nav-tab" id="tab-acct" href="webapp.aspx" onclick="setTab('login')">
+                            <span class="n-bar"></span>
+                            <i class="fa fa-sign-in-alt n-icon"></i>
+                            <span>My Account</span>
+                        </a>
+                        <%--                    <button type="button" class="nav-tab" id="tab-acct" onclick="setTab('acct'); showToast('My Account')">
                         <span class="n-bar"></span>
                         <i class="fa fa-user-circle n-icon"></i>
                         <span>My Account</span>
-                    </button>
+                    </button>--%>
 
-                    <a class="nav-tab" id="tab-login" href="login.html" onclick="setTab('login')">
-                        <span class="n-bar"></span>
-                        <i class="fa fa-sign-in-alt n-icon"></i>
-                        <span>Login</span>
-                    </a>
+                        <a class="nav-tab" id="tab-login" href="AppLogout.aspx" onclick="setTab('login')">
+                            <span class="n-bar"></span>
+                            <i class="fa fa-sign-in-alt n-icon"></i>
+                            <span>Logout</span>
+                        </a>
 
-                </nav>--%>
+                    </nav>
                 </asp:ContentPlaceHolder>
 
             </div>
